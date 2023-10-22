@@ -1,0 +1,13 @@
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = 11279546+Charlie-83@users.noreply.github.com
+	name = Charlie-83
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
