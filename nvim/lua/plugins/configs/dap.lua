@@ -15,3 +15,13 @@ dap.configurations.cpp = {
         cwd = "${workspaceFolder}",
     },
 }
+
+dap.configurations.python = {
+    {
+        name = "All files",
+        type = "python",
+        request = "launch",
+        program = "${file}",
+        justMyCode = false,
+    }
+}
