@@ -1,6 +1,7 @@
 local dap = require "dap"
 local dapui = require "dapui"
 dapui.setup {
+    force_buffers = true,
     layouts = {
         {
             elements = {
@@ -14,7 +15,7 @@ dapui.setup {
                 },
             },
             position = "bottom",
-            size = 10,
+            size = 20,
         },
         {
             elements = {
@@ -35,7 +36,7 @@ dapui.setup {
                     size = 0.25,
                 },
             },
-            position = "bottom",
+            position = "top",
             size = 10,
         },
     },
