@@ -1,9 +1,20 @@
 local plugins = {
-    { "nvim-tree/nvim-web-devicons",         config = true },
-    { "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", main = "ibl", opts = {} },
-    { "nvim-treesitter/nvim-treesitter",     event = "VeryLazy", config = true },
-    { "lewis6991/gitsigns.nvim",             config = true },
-    { "williamboman/mason.nvim",             lazy = false,       config = true },
+    { "nvim-tree/nvim-web-devicons", config = true },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        event = "VeryLazy",
+        main = "ibl",
+        opts = {
+            scope = { show_start = false, show_end = false },
+        },
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        event = "VeryLazy",
+        config = function() require("plugins.configs.treesitter") end,
+    },
+    { "lewis6991/gitsigns.nvim",     config = true },
+    { "williamboman/mason.nvim",     lazy = false, config = true },
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
@@ -53,7 +64,13 @@ local plugins = {
             { "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
         },
     },
-    { "nvim-tree/nvim-tree.lua",       config = true,     cmd = { "NvimTreeToggle" }, opts = require("plugins.configs.nvim-tree") },
+    {
+        "nvim-tree/nvim-tree.lua",
+        config = true,
+        cmd = { "NvimTreeToggle" },
+        opts = require(
+            "plugins.configs.nvim-tree")
+    },
     { "nvim-telescope/telescope.nvim", cmd = "Telescope", config = true },
     { "folke/which-key.nvim",          config = true,     event = "VeryLazy", },
     {
@@ -173,7 +190,7 @@ local plugins = {
     },
     {
         "ggandor/leap.nvim",
-        lazy=false,
+        lazy = false,
         config = true,
     },
     {
