@@ -244,8 +244,14 @@ vim.keymap.set("n", "<leader>sj", "<cmd> TSJSplit <CR>", { desc = "Split block" 
 -- nvimtree
 vim.keymap.set("n", "<leader>e", "<cmd> NvimTreeToggle <CR>", { desc = "Focus nvimtree" })
 
--- nvterm
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Terminal normal mode" })
+-- term
+vim.keymap.set("t", "<Esc>", function()
+    if string.sub(vim.api.nvim_buf_get_name(0), -7, -1) == "lazygit" then
+        return "<Esc>"
+    else
+        return [[<C-\><C-n>]]
+    end
+end, { desc = "Terminal normal mode", expr = true })
 vim.keymap.set("n", "<leader>th", "<cmd> split term://fish <CR>", { desc = "Open terminal horizontal" })
 vim.keymap.set("n", "<leader>tv", "<cmd> vsplit term://fish <CR>", { desc = "Open terminal vertical" })
 
