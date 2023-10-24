@@ -9,6 +9,9 @@ M = {
                 }
             }
         }
-    }
+    },
+    filters = {
+        git_ignored = false,
+    },
 }
 return M
