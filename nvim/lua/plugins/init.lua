@@ -46,7 +46,7 @@ local plugins = {
             },
         },
         opts = function()
-            return require "plugins.configs.cmp"
+            return require "plugins.configs.cmp-conf"
         end,
         config = function(_, opts)
             require("cmp").setup(opts)
