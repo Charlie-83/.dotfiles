@@ -11,10 +11,12 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         event = "VeryLazy",
-        config = function() require("plugins.configs.treesitter") end,
+        config = function()
+            require "plugins.configs.treesitter"
+        end,
     },
-    { "lewis6991/gitsigns.nvim",     config = true },
-    { "williamboman/mason.nvim",     lazy = false, config = true },
+    { "lewis6991/gitsigns.nvim", config = true },
+    { "williamboman/mason.nvim", lazy = false, config = true },
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
@@ -56,23 +58,22 @@ local plugins = {
         "numToStr/Comment.nvim",
         config = true,
         keys = {
-            { "gcc", mode = "n",          desc = "Comment toggle current line" },
-            { "gc",  mode = { "n", "o" }, desc = "Comment toggle linewise" },
-            { "gc",  mode = "x",          desc = "Comment toggle linewise (visual)" },
-            { "gbc", mode = "n",          desc = "Comment toggle current block" },
-            { "gb",  mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-            { "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
+            { "gcc", mode = "n", desc = "Comment toggle current line" },
+            { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+            { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+            { "gbc", mode = "n", desc = "Comment toggle current block" },
+            { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+            { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
         },
     },
     {
         "nvim-tree/nvim-tree.lua",
         config = true,
         cmd = { "NvimTreeToggle" },
-        opts = require(
-            "plugins.configs.nvim-tree")
+        opts = require "plugins.configs.nvim-tree",
     },
     { "nvim-telescope/telescope.nvim", cmd = "Telescope", config = true },
-    { "folke/which-key.nvim",          config = true,     event = "VeryLazy", },
+    { "folke/which-key.nvim", config = true, event = "VeryLazy" },
     {
         "christoomey/vim-tmux-navigator",
         lazy = false,
@@ -228,7 +229,7 @@ local plugins = {
         lazy = false,
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = true,
-        opts = require("plugins.configs.lualine"),
+        opts = require "plugins.configs.lualine",
     },
     {
         "sitiom/nvim-numbertoggle",
@@ -238,7 +239,7 @@ local plugins = {
         "kevinhwang91/nvim-ufo",
         event = "VeryLazy",
         config = function()
-            require("plugins.configs.ufo")
+            require "plugins.configs.ufo"
         end,
         dependencies = { "kevinhwang91/promise-async" },
     },
@@ -274,6 +275,6 @@ local plugins = {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         cmd = "Oil",
         keys = "<leader>o",
-    }
+    },
 }
 return plugins
