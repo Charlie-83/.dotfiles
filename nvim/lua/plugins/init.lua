@@ -245,7 +245,7 @@ local plugins = {
     {
         "chrisgrieser/nvim-origami",
         event = "BufReadPost",
-        opts = true,
+        opts = { keepFoldsAcrossSessions = false },
     },
     {
         "nvim-neorg/neorg",
