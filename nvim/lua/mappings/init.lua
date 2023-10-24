@@ -242,7 +242,9 @@ vim.keymap.set("n", "<leader>tj", "<cmd> TSJJoint <CR>", { desc = "Join block" }
 vim.keymap.set("n", "<leader>sj", "<cmd> TSJSplit <CR>", { desc = "Split block" })
 
 -- nvimtree
-vim.keymap.set("n", "<leader>e", "<cmd> NvimTreeToggle <CR>", { desc = "Focus nvimtree" })
+vim.keymap.set("n", "<leader>e", function()
+    require("nvim-tree.api").tree.toggle { find_file = true }
+end, { desc = "Focus nvimtree" })
 
 -- term
 vim.keymap.set("t", "<Esc>", function()
