@@ -157,3 +157,6 @@ vim.keymap.set("n", "<leader>e", "<cmd> NvimTreeToggle <CR>", { desc = "Focus nv
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Terminal normal mode" })
 vim.keymap.set("n", "<leader>th", "<cmd> split term://fish <CR>", { desc = "Open terminal horizontal" })
 vim.keymap.set("n", "<leader>tv", "<cmd> vsplit term://fish <CR>", { desc = "Open terminal vertical" })
+
+-- oil
+vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Toggle Oil"})

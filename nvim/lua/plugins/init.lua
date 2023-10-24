@@ -267,6 +267,13 @@ local plugins = {
                 },
             }
         end,
+    },
+    {
+        "stevearc/oil.nvim",
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        cmd = "Oil",
+        keys = "<leader>o",
     }
 }
 return plugins
