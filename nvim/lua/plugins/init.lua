@@ -72,7 +72,20 @@ local plugins = {
         cmd = { "NvimTreeToggle" },
         opts = require "plugins.configs.nvim-tree",
     },
-    { "nvim-telescope/telescope.nvim", cmd = "Telescope", config = true },
+    {
+        "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        config = true,
+        opts = {
+            defaults = {
+                mappings = {
+                    n = {
+                        ["q"] = "close",
+                    },
+                },
+            },
+        },
+    },
     { "folke/which-key.nvim", config = true, event = "VeryLazy" },
     {
         "christoomey/vim-tmux-navigator",
@@ -218,7 +231,7 @@ local plugins = {
         config = true,
     },
     {
-        "catppuccin/nvim",
+        "Charlie-83/catppuccin-nvim",
         name = "catppuccin",
         lazy = false,
         priority = 1000,
