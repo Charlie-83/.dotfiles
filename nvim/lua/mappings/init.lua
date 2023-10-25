@@ -59,9 +59,6 @@ end, { desc = "LSP signature help" })
 vim.keymap.set("n", "<leader>D", function()
     vim.lsp.buf.type_definition()
 end, { desc = "LSP definition type" })
-vim.keymap.set("n", "<leader>ra", function()
-    require("nvchad.renamer").open()
-end, { desc = "LSP rename" })
 vim.keymap.set("n", "<leader>ca", function()
     vim.lsp.buf.code_action()
 end, { desc = "LSP code action" })
@@ -74,16 +71,13 @@ end, { desc = "Floating diagnostic" })
 vim.keymap.set("n", "[d", function()
     vim.diagnostic.goto_prev { float = { border = "rounded" } }
 end, {
-    desc = "Goto prev",
+    desc = "Goto previous diagnostic",
 })
 vim.keymap.set("n", "]d", function()
     vim.diagnostic.goto_next { float = { border = "rounded" } }
 end, {
-    desc = "Goto next",
+    desc = "Goto next diagnostic",
 })
-vim.keymap.set("n", "<leader>q", function()
-    vim.diagnostic.setloclist()
-end, { desc = "Diagnostic setloclist" })
 vim.keymap.set("n", "<leader>wa", function()
     vim.lsp.buf.add_workspace_folder()
 end, { desc = "Add workspace folder" })
