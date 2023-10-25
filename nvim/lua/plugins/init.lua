@@ -289,5 +289,12 @@ local plugins = {
         cmd = "Oil",
         keys = "<leader>o",
     },
+    {
+        "luukvbaal/statuscol.nvim",
+        lazy = false,
+        config = function()
+            require "plugins.configs.statuscol"
+        end,
+    },
 }
 return plugins
