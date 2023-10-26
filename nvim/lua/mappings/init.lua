@@ -39,6 +39,25 @@ vim.keymap.set("n", "<leader>fm", "<cmd> Format <cr>", { desc = "Format File" })
 
 -- Buffers
 vim.keymap.set("n", "<leader>x", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>x", function()
+    if vim.bo.buftype == "terminal" then
+        vim.cmd "bd!"
+        return
+    elseif vim.api.nvim_buf_get_option(0, "modified") then
+        vim.notify("Buffer is modified")
+        return
+    else
+        local bufnr = vim.api.nvim_get_current_buf()
+        local windows = vim.api.nvim_list_wins()
+        for _, window in ipairs(windows) do
+            if vim.api.nvim_win_get_buf(window) == bufnr then
+                vim.fn.win_execute(window, "bn")
+            end
+        end
+        vim.cmd(string.format("bd %d", bufnr))
+    end
+end
+, { desc = "Close buffer" })
 
 -- LSP
 vim.keymap.set("n", "gD", function()
