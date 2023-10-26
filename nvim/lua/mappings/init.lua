@@ -272,3 +272,8 @@ vim.keymap.set("n", "<leader>tv", "<cmd> vsplit term://fish <CR>", { desc = "Ope
 
 -- oil
 vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Toggle Oil" })
+
+-- Neorg
+vim.keymap.set("n", "<leader><leader>i", "<cmd> Neorg index <CR>", { desc = "Neorg index" })
+vim.keymap.set("n", "<leader><leader>r", "<cmd> Neorg return <CR>", { desc = "Neorg index" })
+vim.keymap.set("n", "<leader><leader>n", "<cmd> Neorg workspace notes <CR>", { desc = "Neorg workspace notes" })

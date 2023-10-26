@@ -16,6 +16,7 @@ require("lazy").setup(require("plugins"), require("plugins.configs.lazy_nvim"))
 vim.cmd("colorscheme catppuccin")
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 require("mappings")
 
 vim.o.number = true
