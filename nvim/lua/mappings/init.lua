@@ -1,6 +1,3 @@
--- nvim tree
-vim.keymap.set("n", "<leader>e", "<cmd> NvimTreeToggle <CR>")
-
 -- Highlights
 vim.keymap.set("n", "<Esc>", ":noh <CR>", { desc = "Clear highlights" })
 
@@ -44,7 +41,7 @@ vim.keymap.set("n", "<leader>x", function()
         vim.cmd "bd!"
         return
     elseif vim.api.nvim_buf_get_option(0, "modified") then
-        vim.notify("Buffer is modified")
+        vim.notify "Buffer is modified"
         return
     else
         local bufnr = vim.api.nvim_get_current_buf()
@@ -56,8 +53,7 @@ vim.keymap.set("n", "<leader>x", function()
         end
         vim.cmd(string.format("bd %d", bufnr))
     end
-end
-, { desc = "Close buffer" })
+end, { desc = "Close buffer" })
 
 -- LSP
 vim.keymap.set("n", "gD", function()
@@ -256,7 +252,13 @@ vim.keymap.set("n", "<leader>sj", "<cmd> TSJSplit <CR>", { desc = "Split block" 
 
 -- nvimtree
 vim.keymap.set("n", "<leader>e", function()
-    require("nvim-tree.api").tree.toggle { find_file = true }
+    local path
+    if vim.bo.filetype == "norg" then
+        path = require("neorg.modules.core.dirman.module").public.get_current_workspace()[2]
+    else
+        path = vim.fn.getcwd()
+    end
+    require("nvim-tree.api").tree.toggle { find_file = true, path = path }
 end, { desc = "Focus nvimtree" })
 
 -- term
