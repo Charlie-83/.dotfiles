@@ -6,8 +6,9 @@ title_align center
 gaps inner 10
 gaps outer 10
 
-exec_always feh --bg-fill /home/charlie/Downloads/forest.jpg
+exec_always feh --bg-fill /home/charlie/Downloads/forest.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 exec_always picom -f
 
 set $refresh_i3status killall -SIGUSR1 i3status

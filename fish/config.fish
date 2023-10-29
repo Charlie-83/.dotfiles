@@ -18,3 +18,8 @@ function fish_prompt
     set_color green
     echo -n '->>'
 end
+
+function tv
+    xrandr --output DP-1 --same-as eDP-1 --scale 0.5x0.5 --output eDP-1 --scale 1x1
+    pactl set-card-profile 0 output:hdmi-stereo
+end
