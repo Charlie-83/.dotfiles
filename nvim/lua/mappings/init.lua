@@ -269,7 +269,8 @@ vim.keymap.set("t", "<Esc>", function()
         return [[<C-\><C-n>]]
     end
 end, { desc = "Terminal normal mode", expr = true })
-vim.keymap.set("n", "<leader>th", "<cmd> split term://fish <CR>", { desc = "Open terminal horizontal" })
+vim.keymap.set("n", "<leader>th", "<cmd> e term://fish <CR>", { desc = "Open terminal in current pane" })
+vim.keymap.set("n", "<leader>ts", "<cmd> split term://fish <CR>", { desc = "Open terminal horizontal" })
 vim.keymap.set("n", "<leader>tv", "<cmd> vsplit term://fish <CR>", { desc = "Open terminal vertical" })
 
 -- oil
