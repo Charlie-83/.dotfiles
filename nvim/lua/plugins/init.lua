@@ -278,6 +278,7 @@ local plugins = {
                             },
                         },
                     },
+                    ["core.summary"] = {},
                 },
             }
         end,
