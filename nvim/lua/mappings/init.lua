@@ -54,6 +54,8 @@ vim.keymap.set("n", "<leader>x", function()
         vim.cmd(string.format("bd %d", bufnr))
     end
 end, { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>qb", "<cmd> %bd | e# | bd# | normal! g'\" <CR>", { desc = "Close all other buffers"})
+vim.keymap.set("n", "<leader>qB", "<cmd> %bd <CR>", { desc = "Close all buffers"})
 
 -- LSP
 vim.keymap.set("n", "gD", function()
