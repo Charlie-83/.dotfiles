@@ -32,7 +32,7 @@ vim.keymap.set(
 )
 
 -- Formatting
-vim.keymap.set("n", "<leader>fm", "<cmd> Format <cr>", { desc = "Format File" })
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
 
 -- Buffers
 vim.keymap.set("n", "<leader>x", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", { desc = "Close buffer" })
@@ -54,8 +54,8 @@ vim.keymap.set("n", "<leader>x", function()
         vim.cmd(string.format("bd %d", bufnr))
     end
 end, { desc = "Close buffer" })
-vim.keymap.set("n", "<leader>qb", "<cmd> %bd | e# | bd# | normal! g'\" <CR>", { desc = "Close all other buffers"})
-vim.keymap.set("n", "<leader>qB", "<cmd> %bd <CR>", { desc = "Close all buffers"})
+vim.keymap.set("n", "<leader>qb", "<cmd> %bd | e# | bd# | normal! g'\" <CR>", { desc = "Close all other buffers" })
+vim.keymap.set("n", "<leader>qB", "<cmd> %bd <CR>", { desc = "Close all buffers" })
 
 -- LSP
 vim.keymap.set("n", "gD", function()

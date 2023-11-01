@@ -117,11 +117,14 @@ local plugins = {
         end,
     },
     {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         event = "VeryLazy",
         opts = function()
             return require "plugins.configs.null-ls"
         end,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
     },
     {
         "williamboman/mason.nvim",
@@ -139,25 +142,6 @@ local plugins = {
                 "lua-language-server",
             },
         },
-    },
-    {
-        "mhartington/formatter.nvim",
-        cmd = { "Format", "FormatWrite", "FormatLock", "FormatWriteLock" },
-        config = function(_, _)
-            require("formatter").setup {
-                filetype = {
-                    cpp = {
-                        require("formatter.filetypes.cpp").clangformat,
-                    },
-                    lua = {
-                        require("formatter.filetypes.lua").stylua,
-                    },
-                    dart = {
-                        require("formatter.filetypes.dart").dartformat,
-                    },
-                },
-            }
-        end,
     },
     {
         "neovim/nvim-lspconfig",
