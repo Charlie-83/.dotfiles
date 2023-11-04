@@ -1,3 +1,5 @@
+require("neodev").setup()
+
 vim.diagnostic.config { virtual_text = false }
 
 local lspconfig = require "lspconfig"

@@ -144,6 +144,9 @@ local plugins = {
         },
     },
     {
+        "folke/neodev.nvim",
+    },
+    {
         "neovim/nvim-lspconfig",
         config = function()
             require "plugins.configs.lspconfig"
