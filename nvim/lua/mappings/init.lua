@@ -216,7 +216,7 @@ vim.keymap.set("n", "<leader>dl", "<cmd> DapStepOver <CR>", { desc = "Step over"
 vim.keymap.set("n", "<leader>dr", "<cmd> DapToggleRepl <CR>", { desc = "Toggle repl" })
 vim.keymap.set("n", "<leader>dp", "<cmd> DapPause <CR>", { desc = "Pause debugger" })
 vim.keymap.set("n", "<leader>du", function()
-    require("dapui").toggle {}
+    require("dapui").toggle {reset= true}
 end, { desc = "Toggle Dap UI" })
 
 -- LazyGit
