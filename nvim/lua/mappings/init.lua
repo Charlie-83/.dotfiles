@@ -54,8 +54,15 @@ vim.keymap.set("n", "<leader>x", function()
         vim.cmd(string.format("bd %d", bufnr))
     end
 end, { desc = "Close buffer" })
-vim.keymap.set("n", "<leader>qb", "<cmd> %bd | e# | bd# | normal! g'\" <CR>", { desc = "Close all other buffers" })
-vim.keymap.set("n", "<leader>qB", "<cmd> %bd <CR>", { desc = "Close all buffers" })
+
+-- Close all buffers
+vim.keymap.set("n", "<leader>qb", "<cmd> BufferLineCloseOthers <cr>", { desc = "Close all other buffers" })
+vim.keymap.set(
+    "n",
+    "<leader>qB",
+    "<cmd> BufferLineCloseOthers <cr> <leader>x",
+    { desc = "Close all buffers", remap = true }
+)
 
 -- LSP
 vim.keymap.set("n", "gD", function()
@@ -216,7 +223,7 @@ vim.keymap.set("n", "<leader>dl", "<cmd> DapStepOver <CR>", { desc = "Step over"
 vim.keymap.set("n", "<leader>dr", "<cmd> DapToggleRepl <CR>", { desc = "Toggle repl" })
 vim.keymap.set("n", "<leader>dp", "<cmd> DapPause <CR>", { desc = "Pause debugger" })
 vim.keymap.set("n", "<leader>du", function()
-    require("dapui").toggle {reset= true}
+    require("dapui").toggle { reset = true }
 end, { desc = "Toggle Dap UI" })
 
 -- LazyGit
