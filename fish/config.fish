@@ -6,3 +6,16 @@ end
 if test -z $DISPLAY && test 1 -eq $XDG_VTNR
     exec startx
 end
+
+function fish_prompt
+    echo -n "$USER:$hostname"
+    if test (prompt_pwd) != "~"
+        echo -n ---
+        set_color $fish_color_cwd
+        echo -n (prompt_pwd)
+        set_color normal
+        echo -n (fish_git_prompt)
+    end
+    set_color green
+    echo -n '->>'
+end
