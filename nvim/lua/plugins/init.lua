@@ -227,9 +227,11 @@ local plugins = {
     {
         "nvim-lualine/lualine.nvim",
         lazy = false,
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = { "nvim-tree/nvim-web-devicons", "rcarriga/nvim-dap-ui" },
         config = true,
-        opts = require "plugins.configs.lualine",
+        opts = function()
+            return require "plugins.configs.lualine"
+        end,
     },
     {
         "sitiom/nvim-numbertoggle",
