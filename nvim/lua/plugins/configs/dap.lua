@@ -8,11 +8,10 @@ dap.configurations.cpp = {
         cwd = "${workspaceFolder}",
     },
     {
-        name = "caecil",
+        name = "aseprite",
         type = "codelldb",
-        request = "launch",
-        program = "${workspaceFolder}/build/main",
-        cwd = "${workspaceFolder}",
+        request = "attach",
+        program = "${workspaceFolder}/build/bin/aseprite",
     },
 }
 
@@ -23,5 +22,5 @@ dap.configurations.python = {
         request = "launch",
         program = "${file}",
         justMyCode = false,
-    }
+    },
 }
