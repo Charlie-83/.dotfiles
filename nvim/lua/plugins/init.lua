@@ -87,8 +87,12 @@ local plugins = {
         },
     },
     { "folke/which-key.nvim", config = true, event = "VeryLazy" },
+    -- {
+    --     "christoomey/vim-tmux-navigator",
+    --     lazy = false,
+    -- },
     {
-        "christoomey/vim-tmux-navigator",
+        "knubie/vim-kitty-navigator",
         lazy = false,
     },
     {
