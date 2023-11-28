@@ -83,6 +83,7 @@ local plugins = {
                         ["q"] = "close",
                     },
                 },
+                layout_strategy = "vertical",
             },
         },
     },
