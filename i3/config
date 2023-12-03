@@ -223,7 +223,7 @@ set $mantle    #181825
 set $crust     #11111b
 
 # target                 title     bg    text   indicator  border
-client.focused           $green     $green $text  $green $green
+client.focused           $green     $green $text  $green $teal
 client.focused_inactive  $green    $green $text  $green $green
 client.unfocused         $green    $green $text  $green $green
 client.urgent            $green    $green $peach $green  $green
