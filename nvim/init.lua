@@ -28,4 +28,6 @@ vim.o.shiftwidth = 4
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+vim.o.foldmethod = "indent"
+
 os.execute "git -C /home/charlie/notes pull"
