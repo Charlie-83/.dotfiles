@@ -34,6 +34,9 @@ vim.keymap.set(
 -- Formatting
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
 
+-- Build
+vim.keymap.set("n", "<leader>b", "<cmd> term cmake --build build <CR> <cmd> execute ':file Build' strftime('%H:%M:%S')  <CR>", { desc = "Build with cmake" })
+
 -- Buffers
 vim.keymap.set("n", "<leader>x", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>x", function()
@@ -282,7 +285,7 @@ vim.keymap.set("t", "<Esc>", function()
         return [[<C-\><C-n>]]
     end
 end, { desc = "Terminal normal mode", expr = true })
-vim.keymap.set("n", "<leader>th", "<cmd> e term://fish <CR>", { desc = "Open terminal in current pane" })
+vim.keymap.set("n", "<leader>th", "<cmd> term <CR>", { desc = "Open terminal in current pane" })
 vim.keymap.set("n", "<leader>ts", "<cmd> split term://fish <CR>", { desc = "Open terminal horizontal" })
 vim.keymap.set("n", "<leader>tv", "<cmd> vsplit term://fish <CR>", { desc = "Open terminal vertical" })
 
