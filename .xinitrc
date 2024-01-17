@@ -33,7 +33,7 @@ fi
 
 setxkbmap -layout us
 
-xrandr --output DP-0 --auto --left-of HDMI-0 --rotate left
+xrandr --output DP-2 --auto --left-of HDMI-0 --rotate left
 xrandr --output HDMI-0 --primary
 
 exec i3

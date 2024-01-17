@@ -31,3 +31,5 @@ vim.o.smartcase = true
 vim.o.foldmethod = "indent"
 
 os.execute "git -C /home/charlie/notes pull"
+
+require "autocommands"

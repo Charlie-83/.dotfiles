@@ -35,7 +35,12 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
 
 -- Build
-vim.keymap.set("n", "<leader>b", "<cmd> term cmake --build build <CR> <cmd> execute ':file Build' strftime('%H:%M:%S')  <CR>", { desc = "Build with cmake" })
+vim.keymap.set(
+    "n",
+    "<leader>b",
+    "<cmd> term cmake --build build <CR> <cmd> execute ':file Build' strftime('%H:%M:%S')  <CR>",
+    { desc = "Build with cmake" }
+)
 
 -- Buffers
 vim.keymap.set("n", "<leader>x", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", { desc = "Close buffer" })

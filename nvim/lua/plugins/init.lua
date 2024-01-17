@@ -295,5 +295,10 @@ local plugins = {
             require "plugins.configs.statuscol"
         end,
     },
+    {
+        "jakemason/ouroboros.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        ft = { "cpp" },
+    },
 }
 return plugins
