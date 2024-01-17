@@ -296,6 +296,12 @@ local plugins = {
         end,
     },
     {
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        opts = {},
+        lazy = false,
+    },
+    {
         "jakemason/ouroboros.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         ft = { "cpp" },
