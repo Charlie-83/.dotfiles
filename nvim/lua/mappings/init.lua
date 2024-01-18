@@ -265,6 +265,7 @@ vim.keymap.set("n", "<S-h>", "<cmd> bp <CR>", { desc = "Goto prev buffer" })
 -- leap
 vim.keymap.set({ "n", "x", "o" }, "m", "<Plug>(leap-forward-to)", { desc = "Leap forward" })
 vim.keymap.set({ "n", "x", "o" }, "M", "<Plug>(leap-backward-to)", { desc = "Leap backward" })
+vim.keymap.set({ "n" }, ",", "m", { desc = "Place mark" })
 
 -- treesj
 vim.keymap.set("n", "<leader>tt", "<cmd> TSJToggle <CR>", { desc = "Toggle split/join block" })
