@@ -8,3 +8,9 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    callback = function()
+        vim.cmd "stopinsert"
+    end,
+})
