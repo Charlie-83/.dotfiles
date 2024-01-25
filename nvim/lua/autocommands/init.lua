@@ -14,3 +14,10 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         vim.cmd "stopinsert"
     end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "qf", "loclist", "Trouble" },
+    callback = function()
+        vim.wo.wrap = false
+    end,
+})
