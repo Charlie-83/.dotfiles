@@ -33,3 +33,4 @@ vim.o.foldmethod = "indent"
 os.execute "git -C /home/charlie/notes pull"
 
 require "autocommands"
+require "snippets.cpp"

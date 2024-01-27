@@ -18,15 +18,15 @@ local plugins = {
     { "lewis6991/gitsigns.nvim", config = true },
     { "williamboman/mason.nvim", lazy = false, config = true },
     {
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = true,
+    },
+    {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
         dependencies = {
-            {
-                "L3MON4D3/LuaSnip",
-                dependencies = "rafamadriz/friendly-snippets",
-                opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-                config = true,
-            },
             {
                 "windwp/nvim-autopairs",
                 opts = {
@@ -40,6 +40,7 @@ local plugins = {
                 end,
             },
             {
+                "L3MON4D3/LuaSnip",
                 "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lua",
                 "hrsh7th/cmp-nvim-lsp",
