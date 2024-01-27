@@ -302,3 +302,14 @@ vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Toggle O
 vim.keymap.set("n", "<leader><leader>i", "<cmd> Neorg index <CR>", { desc = "Neorg index" })
 vim.keymap.set("n", "<leader><leader>r", "<cmd> Neorg return <CR>", { desc = "Neorg index" })
 vim.keymap.set("n", "<leader><leader>n", "<cmd> Neorg workspace notes <CR>", { desc = "Neorg workspace notes" })
+
+-- Snippets
+vim.keymap.set("i", "<C-CR>", function()
+    local ls = require "luasnip"
+    if ls.jumpable(1) then
+        ls.jump(1)
+        return
+    else
+        return "<C-CR>"
+    end
+end, {})

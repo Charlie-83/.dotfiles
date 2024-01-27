@@ -253,7 +253,7 @@ local plugins = {
     },
     {
         "chrisgrieser/nvim-origami",
-        event = "BufReadPost",
+        lazy = false,
         opts = { keepFoldsAcrossSessions = false },
     },
     {

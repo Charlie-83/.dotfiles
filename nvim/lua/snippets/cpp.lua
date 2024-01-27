@@ -23,21 +23,38 @@ ls.add_snippets("cpp", {
     s("flecsmod", {
         d(1, function(_, parent)
             local env = parent.snippet.env
-            local name = env.TM_FILENAME:match "^(.+)%.%w+$"
-            name = name:gsub("^.", string.upper)
-            return sn(
-                nil,
-                t {
-                    "#include <flecs.h>",
-                    "",
-                    "struct " .. name .. "M",
-                    "{",
-                    "    " .. name .. "M(flecs::world &world);",
-                    "};",
-                }
-            )
+            local name, filetype = env.TM_FILENAME:match "^(.+)%.(%w+)$"
+            capitalised_name = name:gsub("^.", string.upper)
+            if filetype == "hpp" then
+                return sn(
+                    nil,
+                    t {
+                        "#include <flecs.h>",
+                        "",
+                        "struct " .. capitalised_name .. "M",
+                        "{",
+                        "    " .. capitalised_name .. "M(flecs::world &world);",
+                        "};",
+                    }
+                )
+            else
+                return sn(nil, {
+                    t "#include <",
+                    i(1),
+                    t {
+                        name .. ".hpp>",
+                        "",
+                        ("%sM::%sM(flecs::world &world)"):format(capitalised_name, capitalised_name),
+                        "{",
+                        "    ",
+                    },
+                    i(2),
+                    t { "", "}" },
+                })
+            end
         end),
     }),
+    s("test", { t "hello ", i(1), t " hi ", i(2) }),
 }, { key = "cpp" })
 
 require("luasnip.loaders.from_lua").lazy_load { include = { "cpp" } }
