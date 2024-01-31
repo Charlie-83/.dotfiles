@@ -2,7 +2,6 @@ local plugins = {
     { "nvim-tree/nvim-web-devicons", config = true },
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
         main = "ibl",
         opts = {
             scope = { show_start = false, show_end = false },
@@ -10,13 +9,11 @@ local plugins = {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        event = "VeryLazy",
         config = function()
             require "plugins.configs.treesitter"
         end,
     },
     { "lewis6991/gitsigns.nvim", config = true },
-    { "williamboman/mason.nvim", lazy = false, config = true },
     {
         "L3MON4D3/LuaSnip",
         dependencies = "rafamadriz/friendly-snippets",
@@ -25,7 +22,6 @@ local plugins = {
     },
     {
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
         dependencies = {
             {
                 "windwp/nvim-autopairs",
@@ -58,24 +54,14 @@ local plugins = {
     {
         "numToStr/Comment.nvim",
         config = true,
-        keys = {
-            { "gcc", mode = "n", desc = "Comment toggle current line" },
-            { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-            { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-            { "gbc", mode = "n", desc = "Comment toggle current block" },
-            { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-            { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
-        },
     },
     {
         "nvim-tree/nvim-tree.lua",
         config = true,
-        cmd = { "NvimTreeToggle" },
         opts = require "plugins.configs.nvim-tree",
     },
     {
         "nvim-telescope/telescope.nvim",
-        cmd = "Telescope",
         config = true,
         opts = {
             defaults = {
@@ -89,64 +75,29 @@ local plugins = {
         },
     },
     { "folke/which-key.nvim", config = true, event = "VeryLazy" },
-    -- {
-    --     "christoomey/vim-tmux-navigator",
-    --     lazy = false,
-    -- },
     {
         "knubie/vim-kitty-navigator",
-        lazy = false,
     },
     {
         "rcarriga/nvim-dap-ui",
-        event = "VeryLazy",
         dependencies = "mfussenegger/nvim-dap",
         config = function()
             require "plugins.configs.dap-ui"
         end,
     },
     {
-        "jay-babu/mason-nvim-dap.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "mfussenegger/nvim-dap",
-        },
-        opts = {
-            handlers = {},
-        },
-    },
-    {
         "mfussenegger/nvim-dap",
-        config = function(_, _)
+        config = function()
             require "plugins.configs.dap"
         end,
     },
     {
         "nvimtools/none-ls.nvim",
-        event = "VeryLazy",
         opts = function()
             return require "plugins.configs.null-ls"
         end,
         dependencies = {
             "nvim-lua/plenary.nvim",
-        },
-    },
-    {
-        "williamboman/mason.nvim",
-        opts = {
-            ensure_installed = {
-                "clangd",
-                "clang-format",
-                "codelldb",
-                "pyright",
-                "pylint",
-                "mypy",
-                "debugpy",
-                "stylua",
-                "dart-debug-adapter",
-                "lua-language-server",
-            },
         },
     },
     {
@@ -160,7 +111,6 @@ local plugins = {
     },
     {
         "kdheepak/lazygit.nvim",
-        cmd = { "LazyGit" },
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
@@ -170,16 +120,10 @@ local plugins = {
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
         config = true,
-        lazy = false,
     },
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        cmd = "TroubleToggle",
-    },
-    {
-        "lewis6991/gitsigns.nvim",
-        event = "VeryLazy",
     },
     {
         "ggandor/flit.nvim",
@@ -187,7 +131,6 @@ local plugins = {
             "ggandor/leap.nvim",
             "tpope/vim-repeat",
         },
-        keys = { "f", "F", "t", "T" },
         opts = {
             keys = { f = "f", F = "F", t = "t", T = "T" },
             labeled_modes = "vn",
@@ -197,42 +140,21 @@ local plugins = {
     },
     {
         "ggandor/leap.nvim",
-        lazy = false,
         config = true,
-    },
-    {
-        "mfussenegger/nvim-dap-python",
-        ft = "python",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-        },
-        config = function(_, _)
-            local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-            require("dap-python").setup(path)
-        end,
     },
     {
         "kylechui/nvim-surround",
         version = "*",
-        event = "VeryLazy",
-        config = true,
-    },
-    {
-        "Wansmer/treesj",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
-        keys = { "<leader>tt", "<leader>ts", "<leader>tj" },
         config = true,
     },
     {
         "Charlie-83/catppuccin-nvim",
         name = "catppuccin",
-        lazy = false,
         priority = 1000,
         config = true,
     },
     {
         "nvim-lualine/lualine.nvim",
-        lazy = false,
         dependencies = { "nvim-tree/nvim-web-devicons", "rcarriga/nvim-dap-ui" },
         config = true,
         opts = function()
@@ -240,27 +162,17 @@ local plugins = {
         end,
     },
     {
-        "sitiom/nvim-numbertoggle",
-        event = "VeryLazy",
-    },
-    {
         "kevinhwang91/nvim-ufo",
-        event = "VeryLazy",
         config = function()
             require "plugins.configs.ufo"
         end,
         dependencies = { "kevinhwang91/promise-async" },
     },
     {
-        "chrisgrieser/nvim-origami",
-        lazy = false,
-        opts = { keepFoldsAcrossSessions = false },
-    },
-    {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
         dependencies = { "nvim-lua/plenary.nvim" },
-        event = "VeryLazy",
+        ft = { "norg" },
         config = function()
             require("neorg").setup {
                 load = {
@@ -286,12 +198,9 @@ local plugins = {
             },
         },
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        cmd = "Oil",
-        keys = "<leader>o",
     },
     {
         "luukvbaal/statuscol.nvim",
-        lazy = false,
         config = function()
             require "plugins.configs.statuscol"
         end,
@@ -300,7 +209,6 @@ local plugins = {
         "m4xshen/hardtime.nvim",
         dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
         opts = {},
-        lazy = false,
     },
     {
         "jakemason/ouroboros.nvim",
