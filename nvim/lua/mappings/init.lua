@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+
 -- Highlights
 vim.keymap.set("n", "<Esc>", ":noh <CR>", { desc = "Clear highlights" })
 
@@ -267,7 +267,7 @@ vim.keymap.set("n", "<S-h>", "<cmd> bp <CR>", { desc = "Goto prev buffer" })
 -- leap
 vim.keymap.set({ "n", "x", "o" }, "m", "<Plug>(leap-forward-to)", { desc = "Leap forward" })
 vim.keymap.set({ "n", "x", "o" }, "M", "<Plug>(leap-backward-to)", { desc = "Leap backward" })
-vim.keymap.set({ "n" }, ",", "m", { desc = "Place mark" })
+-- vim.keymap.set({ "n" }, ",", "m", { desc = "Place mark" })
 
 -- treesj
 vim.keymap.set("n", "<leader>tt", "<cmd> TSJToggle <CR>", { desc = "Toggle split/join block" })
@@ -315,3 +315,15 @@ vim.keymap.set("i", "<C-CR>", function()
         return "<C-CR>"
     end
 end, {})
+
+-- Marks
+vim.keymap.set("n", ",", "<Plug>(Marks-set)", { desc = "Set mark" })
+vim.keymap.set("n", ",,,", "<Plug>(Marks-setnext)", { desc = "Set next mark" })
+vim.keymap.set("n", ",,t", "<Plug>(Marks-toggle)", { desc = "Toggle mark" })
+vim.keymap.set("n", ",,dd", "<Plug>(Marks-deleteline)", { desc = "Delete mark" })
+vim.keymap.set("n", ",,db", "<Plug>(Marks-deletebuf)", { desc = "Delete all marks in buf" })
+vim.keymap.set("n", ",,p", "<Plug>(Marks-preview)", { desc = "Preview mark" })
+vim.keymap.set("n", "],", "<Plug>(Marks-next) zz", { desc = "Next mark" })
+vim.keymap.set("n", "[,", "<Plug>(Marks-prev) zz", { desc = "Previous mark" })
+vim.keymap.set("n", ",,b", "<cmd> MarksListBuf <CR>", { desc = "List buffer marks" })
+vim.keymap.set("n", ",,a", "<cmd> MarksListAll <CR>", { desc = "List all marks" })
