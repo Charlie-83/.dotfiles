@@ -215,5 +215,12 @@ local plugins = {
         dependencies = { "nvim-lua/plenary.nvim" },
         ft = { "cpp" },
     },
+    {
+        "chentoast/marks.nvim",
+        opts = {
+            default_mappings = false,
+            builtin_marks = { ".", "<", ">", "^" },
+        },
+    },
 }
 return plugins

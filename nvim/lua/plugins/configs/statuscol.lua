@@ -2,17 +2,16 @@ local builtin = require "statuscol.builtin"
 require("statuscol").setup {
     relculright = true,
     segments = {
-        { text = { "%s" }, click = "v:lua.ScSa", colwidth = 1 },
+        { sign = { name = { "Marks_.*" }, colwidth = 1 } },
+        { sign = { name = { "DiagnosticSign.*" }, colwidth = 1 } },
         {
             text = { builtin.foldfunc },
-            condition = { true },
-            click = "v:lua.ScFa",
             colwidth = 1,
         },
+        { sign = { namespace = { "gitsigns.*" }, colwidth = 1 } },
         {
             text = { builtin.lnumfunc },
-            click = "v:lua.ScLa",
-            colwidth = 1,
+            colwidth = 0.5,
         },
     },
 }

@@ -8,3 +8,4 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.o.foldmethod = "indent"
+vim.o.relativenumber = true
