@@ -1,4 +1,4 @@
-local cmp = require "cmp"
+local cmp = require("cmp")
 
 local options = {
     snippet = {
@@ -8,10 +8,10 @@ local options = {
     },
     mapping = {
         ["<C-e>"] = cmp.mapping.close(),
-        ["<CR>"] = cmp.mapping.confirm {
+        ["<CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Insert,
             select = false,
-        },
+        }),
         ["<Tab>"] = cmp.mapping.select_next_item(),
         ["<S-Tab>"] = cmp.mapping.select_prev_item(),
     },
@@ -25,6 +25,6 @@ local options = {
 }
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("lspconfig")["lua_ls"].setup { capabilities = capabilities }
+require("lspconfig")["lua_ls"].setup({ capabilities = capabilities })
 
 return options

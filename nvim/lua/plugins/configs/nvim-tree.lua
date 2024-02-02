@@ -6,9 +6,9 @@ M = {
                     unstaged = "",
                     staged = "",
                     untracked = "",
-                }
-            }
-        }
+                },
+            },
+        },
     },
     filters = {
         git_ignored = false,

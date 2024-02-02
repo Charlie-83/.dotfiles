@@ -11,25 +11,25 @@ vim.keymap.set("n", "<leader>rn", "<cmd> set rnu! <CR>", { desc = "Toggle relati
 vim.keymap.set(
     { "n", "v", "x" },
     "j",
-    'v:count || mode(1)[0:1] == "no" ? "j" : "gj"',
+    "v:count || mode(1)[0:1] == \"no\" ? \"j\" : \"gj\"",
     { desc = "Move down", expr = true }
 )
 vim.keymap.set(
     { "n", "v", "x" },
     "k",
-    'v:count || mode(1)[0:1] == "no" ? "k" : "gk"',
+    "v:count || mode(1)[0:1] == \"no\" ? \"k\" : \"gk\"",
     { desc = "Move up", expr = true }
 )
 vim.keymap.set(
     { "n", "v", "x" },
     "<Up>",
-    'v:count || mode(1)[0:1] == "no" ? "k" : "gk"',
+    "v:count || mode(1)[0:1] == \"no\" ? \"k\" : \"gk\"",
     { desc = "Move up", expr = true }
 )
 vim.keymap.set(
     { "n", "v", "x" },
     "<Down>",
-    'v:count || mode(1)[0:1] == "no" ? "j" : "gj"',
+    "v:count || mode(1)[0:1] == \"no\" ? \"j\" : \"gj\"",
     { desc = "Move down", expr = true }
 )
 
@@ -48,10 +48,10 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>x", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>x", function()
     if vim.bo.buftype == "terminal" then
-        vim.cmd "bd!"
+        vim.cmd("bd!")
         return
     elseif vim.api.nvim_buf_get_option(0, "modified") then
-        vim.notify "Buffer is modified"
+        vim.notify("Buffer is modified")
         return
     else
         local bufnr = vim.api.nvim_get_current_buf()
@@ -66,7 +66,12 @@ vim.keymap.set("n", "<leader>x", function()
 end, { desc = "Close buffer" })
 
 -- Close all buffers
-vim.keymap.set("n", "<leader>qb", "<cmd> BufferLineCloseOthers <cr>", { desc = "Close all other buffers" })
+vim.keymap.set(
+    "n",
+    "<leader>qb",
+    "<cmd> BufferLineCloseOthers <cr>",
+    { desc = "Close all other buffers" }
+)
 vim.keymap.set(
     "n",
     "<leader>qB",
@@ -100,15 +105,15 @@ vim.keymap.set("n", "gr", function()
     vim.lsp.buf.references()
 end, { desc = "LSP references" })
 vim.keymap.set("n", "<leader>f", function()
-    vim.diagnostic.open_float { border = "rounded" }
+    vim.diagnostic.open_float({ border = "rounded" })
 end, { desc = "Floating diagnostic" })
 vim.keymap.set("n", "[d", function()
-    vim.diagnostic.goto_prev { float = { border = "rounded" } }
+    vim.diagnostic.goto_prev({ float = { border = "rounded" } })
 end, {
     desc = "Goto previous diagnostic",
 })
 vim.keymap.set("n", "]d", function()
-    vim.diagnostic.goto_next { float = { border = "rounded" } }
+    vim.diagnostic.goto_next({ float = { border = "rounded" } })
 end, {
     desc = "Goto next diagnostic",
 })
@@ -133,7 +138,12 @@ vim.keymap.set("n", "<leader>fw", "<cmd> Telescope live_grep <CR>", { desc = "Li
 vim.keymap.set("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", { desc = "Help page" })
 vim.keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Find oldfiles" })
-vim.keymap.set("n", "<leader>fz", "<cmd> Telescope current_buffer_fuzzy_find <CR>", { desc = "Find in current buffer" })
+vim.keymap.set(
+    "n",
+    "<leader>fz",
+    "<cmd> Telescope current_buffer_fuzzy_find <CR>",
+    { desc = "Find in current buffer" }
+)
 vim.keymap.set("n", "<leader>ma", "<cmd> Telescope marks <CR>", { desc = "telescope bookmarks" })
 vim.keymap.set(
     "n",
@@ -150,10 +160,10 @@ vim.keymap.set(
 
 -- Which
 vim.keymap.set("n", "<leader>wK", function()
-    vim.cmd "WhichKey"
+    vim.cmd("WhichKey")
 end, { desc = "Which-key all keymaps" })
 vim.keymap.set("n", "<leader>wk", function()
-    local input = vim.fn.input "WhichKey: "
+    local input = vim.fn.input("WhichKey: ")
     vim.cmd("WhichKey " .. input)
 end, { desc = "Which-key query lookup" })
 
@@ -180,13 +190,13 @@ vim.keymap.set("n", "<leader>hs", function()
     require("gitsigns").stage_hunk()
 end, { desc = "Stage Hunk" })
 vim.keymap.set("v", "<leader>hs", function()
-    require("gitsigns").stage_hunk { vim.fn.line ".", vim.fn.line "v" }
+    require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 end, { desc = "Stage Hunk" })
 vim.keymap.set("n", "<leader>hr", function()
     require("gitsigns").reset_hunk()
 end, { desc = "Reset Hunk" })
 vim.keymap.set("v", "<leader>hr", function()
-    require("gitsigns").reset_hunk { vim.fn.line ".", vim.fn.line "v" }
+    require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 end, { desc = "Reset Hunk" })
 vim.keymap.set("n", "<leader>hS", function()
     require("gitsigns").stage_buffer()
@@ -201,7 +211,7 @@ vim.keymap.set("n", "<leader>hp", function()
     require("gitsigns").preview_hunk()
 end, { desc = "Preview Hunk" })
 vim.keymap.set("n", "<leader>hb", function()
-    require("gitsigns").blame_line { full = true }
+    require("gitsigns").blame_line({ full = true })
 end, { desc = "Blame Line" })
 vim.keymap.set("n", "<leader>hB", function()
     require("gitsigns").toggle_current_line_blame()
@@ -210,7 +220,7 @@ vim.keymap.set("n", "<leader>hd", function()
     require("gitsigns").diffthis()
 end, { desc = "Diff Against Index" })
 vim.keymap.set("n", "<leader>hD", function()
-    require("gitsigns").diffthis "~"
+    require("gitsigns").diffthis("~")
 end, { desc = "Diff Against Last Commit" })
 vim.keymap.set("n", "<leader>hx", function()
     require("gitsigns").toggle_deleted()
@@ -228,8 +238,18 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- DAP
-vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint to line" })
-vim.keymap.set("n", "<leader>dc", "<cmd> DapContinue <CR>", { desc = "Start or continue the debugger" })
+vim.keymap.set(
+    "n",
+    "<leader>db",
+    "<cmd> DapToggleBreakpoint <CR>",
+    { desc = "Add breakpoint to line" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dc",
+    "<cmd> DapContinue <CR>",
+    { desc = "Start or continue the debugger" }
+)
 vim.keymap.set("n", "<leader>dt", "<cmd> DapTerminate <CR>", { desc = "Terminate the debugger" })
 vim.keymap.set("n", "<leader>dj", "<cmd> DapStepInto <CR>", { desc = "Step in" })
 vim.keymap.set("n", "<leader>dk", "<cmd> DapStepOut <CR>", { desc = "Step out" })
@@ -237,7 +257,7 @@ vim.keymap.set("n", "<leader>dl", "<cmd> DapStepOver <CR>", { desc = "Step over"
 vim.keymap.set("n", "<leader>dr", "<cmd> DapToggleRepl <CR>", { desc = "Toggle repl" })
 vim.keymap.set("n", "<leader>dp", "<cmd> DapPause <CR>", { desc = "Pause debugger" })
 vim.keymap.set("n", "<leader>du", function()
-    require("dapui").toggle { reset = true }
+    require("dapui").toggle({ reset = true })
 end, { desc = "Toggle Dap UI" })
 
 -- LazyGit
@@ -282,7 +302,7 @@ vim.keymap.set("n", "<leader>e", function()
     else
         path = vim.fn.getcwd()
     end
-    require("nvim-tree.api").tree.toggle { find_file = true, path = path }
+    require("nvim-tree.api").tree.toggle({ find_file = true, path = path })
 end, { desc = "Focus nvimtree" })
 
 -- term
@@ -294,8 +314,18 @@ vim.keymap.set("t", "<Esc>", function()
     end
 end, { desc = "Terminal normal mode", expr = true })
 vim.keymap.set("n", "<leader>th", "<cmd> term <CR>", { desc = "Open terminal in current pane" })
-vim.keymap.set("n", "<leader>ts", "<cmd> split term://fish <CR>", { desc = "Open terminal horizontal" })
-vim.keymap.set("n", "<leader>tv", "<cmd> vsplit term://fish <CR>", { desc = "Open terminal vertical" })
+vim.keymap.set(
+    "n",
+    "<leader>ts",
+    "<cmd> split term://fish <CR>",
+    { desc = "Open terminal horizontal" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>tv",
+    "<cmd> vsplit term://fish <CR>",
+    { desc = "Open terminal vertical" }
+)
 
 -- oil
 vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Toggle Oil" })
@@ -303,11 +333,16 @@ vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Toggle O
 -- Neorg
 vim.keymap.set("n", "<leader><leader>i", "<cmd> Neorg index <CR>", { desc = "Neorg index" })
 vim.keymap.set("n", "<leader><leader>r", "<cmd> Neorg return <CR>", { desc = "Neorg index" })
-vim.keymap.set("n", "<leader><leader>n", "<cmd> Neorg workspace notes <CR>", { desc = "Neorg workspace notes" })
+vim.keymap.set(
+    "n",
+    "<leader><leader>n",
+    "<cmd> Neorg workspace notes <CR>",
+    { desc = "Neorg workspace notes" }
+)
 
 -- Snippets
 vim.keymap.set("i", "<C-CR>", function()
-    local ls = require "luasnip"
+    local ls = require("luasnip")
     if ls.jumpable(1) then
         ls.jump(1)
         return

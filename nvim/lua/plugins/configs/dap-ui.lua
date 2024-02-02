@@ -1,6 +1,6 @@
-local dap = require "dap"
-local dapui = require "dapui"
-dapui.setup {
+local dap = require("dap")
+local dapui = require("dapui")
+dapui.setup({
     force_buffers = true,
     layouts = {
         {
@@ -40,7 +40,7 @@ dapui.setup {
             size = 10,
         },
     },
-}
+})
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end

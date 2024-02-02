@@ -10,7 +10,7 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         config = function()
-            require "plugins.configs.treesitter"
+            require("plugins.configs.treesitter")
         end,
     },
     { "lewis6991/gitsigns.nvim", config = true },
@@ -31,7 +31,7 @@ local plugins = {
                 },
                 config = function(_, opts)
                     require("nvim-autopairs").setup(opts)
-                    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+                    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
                     require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
                 end,
             },
@@ -45,7 +45,7 @@ local plugins = {
             },
         },
         opts = function()
-            return require "plugins.configs.cmp-conf"
+            return require("plugins.configs.cmp-conf")
         end,
         config = function(_, opts)
             require("cmp").setup(opts)
@@ -58,7 +58,7 @@ local plugins = {
     {
         "nvim-tree/nvim-tree.lua",
         config = true,
-        opts = require "plugins.configs.nvim-tree",
+        opts = require("plugins.configs.nvim-tree"),
     },
     {
         "nvim-telescope/telescope.nvim",
@@ -82,19 +82,19 @@ local plugins = {
         "rcarriga/nvim-dap-ui",
         dependencies = "mfussenegger/nvim-dap",
         config = function()
-            require "plugins.configs.dap-ui"
+            require("plugins.configs.dap-ui")
         end,
     },
     {
         "mfussenegger/nvim-dap",
         config = function()
-            require "plugins.configs.dap"
+            require("plugins.configs.dap")
         end,
     },
     {
         "nvimtools/none-ls.nvim",
         opts = function()
-            return require "plugins.configs.null-ls"
+            return require("plugins.configs.null-ls")
         end,
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -106,7 +106,7 @@ local plugins = {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            require "plugins.configs.lspconfig"
+            require("plugins.configs.lspconfig")
         end,
     },
     {
@@ -158,13 +158,13 @@ local plugins = {
         dependencies = { "nvim-tree/nvim-web-devicons", "rcarriga/nvim-dap-ui" },
         config = true,
         opts = function()
-            return require "plugins.configs.lualine"
+            return require("plugins.configs.lualine")
         end,
     },
     {
         "kevinhwang91/nvim-ufo",
         config = function()
-            require "plugins.configs.ufo"
+            require("plugins.configs.ufo")
         end,
         dependencies = { "kevinhwang91/promise-async" },
     },
@@ -174,7 +174,7 @@ local plugins = {
         dependencies = { "nvim-lua/plenary.nvim" },
         ft = { "norg" },
         config = function()
-            require("neorg").setup {
+            require("neorg").setup({
                 load = {
                     ["core.defaults"] = {},
                     ["core.concealer"] = {},
@@ -187,7 +187,7 @@ local plugins = {
                     },
                     ["core.summary"] = {},
                 },
-            }
+            })
         end,
     },
     {
@@ -202,7 +202,7 @@ local plugins = {
     {
         "luukvbaal/statuscol.nvim",
         config = function()
-            require "plugins.configs.statuscol"
+            require("plugins.configs.statuscol")
         end,
     },
     {

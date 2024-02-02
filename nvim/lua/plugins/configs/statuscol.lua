@@ -1,5 +1,5 @@
-local builtin = require "statuscol.builtin"
-require("statuscol").setup {
+local builtin = require("statuscol.builtin")
+require("statuscol").setup({
     bt_ignore = { "terminal" },
     relculright = true,
     segments = {
@@ -15,4 +15,4 @@ require("statuscol").setup {
             colwidth = 0.5,
         },
     },
-}
+})

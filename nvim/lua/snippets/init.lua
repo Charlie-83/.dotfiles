@@ -1,1 +1,1 @@
-require "snippets.cpp"
+require("snippets.cpp")

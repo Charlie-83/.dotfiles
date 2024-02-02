@@ -26,7 +26,7 @@ M = {
         lualine_y = { "filetype" },
     },
 }
-local dap = require "dap"
+local dap = require("dap")
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dap_running_flag = true
 end
