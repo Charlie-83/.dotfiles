@@ -1,5 +1,3 @@
-require "autocommands.ft_mapping"
-
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.hpp",
     callback = function()
@@ -11,7 +9,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     callback = function()
-        vim.cmd "stopinsert"
+        vim.cmd("stopinsert")
     end,
 })
 
