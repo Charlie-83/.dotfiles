@@ -1,5 +1,6 @@
 local builtin = require "statuscol.builtin"
 require("statuscol").setup {
+    bt_ignore = { "terminal" },
     relculright = true,
     segments = {
         { sign = { name = { "Marks_.*" }, colwidth = 1 } },

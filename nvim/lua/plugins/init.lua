@@ -217,9 +217,11 @@ local plugins = {
     },
     {
         "chentoast/marks.nvim",
+        commit = "e0909e4868671d158a7dce1bc7872fd7a1f7d656",
         opts = {
             default_mappings = false,
             builtin_marks = { ".", "<", ">", "^" },
+            excluded_buftypes = { "terminal" },
         },
     },
 }
