@@ -12,7 +12,7 @@ lspconfig.clangd.setup({
     filetypes = { "cpp" },
 })
 
-lspconfig.pyright.setup({
+lspconfig.jedi_language_server.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { "python" },
