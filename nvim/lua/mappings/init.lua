@@ -107,12 +107,12 @@ end, { desc = "LSP references" })
 vim.keymap.set("n", "<leader>f", function()
     vim.diagnostic.open_float({ border = "rounded" })
 end, { desc = "Floating diagnostic" })
-vim.keymap.set("n", "[d", function()
+vim.keymap.set("n", "[t", function()
     vim.diagnostic.goto_prev({ float = { border = "rounded" } })
 end, {
     desc = "Goto previous diagnostic",
 })
-vim.keymap.set("n", "]d", function()
+vim.keymap.set("n", "]t", function()
     vim.diagnostic.goto_next({ float = { border = "rounded" } })
 end, {
     desc = "Goto next diagnostic",
