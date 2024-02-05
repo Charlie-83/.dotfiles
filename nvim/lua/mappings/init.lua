@@ -243,6 +243,7 @@ vim.keymap.set(
     "<cmd> DapToggleBreakpoint <CR>",
     { desc = "Add breakpoint to line" }
 )
+vim.keymap.set("n", "<leader>dx", require("dap").clear_breakpoints, { desc = "Clear breakpoints" })
 vim.keymap.set(
     "n",
     "<leader>dc",
