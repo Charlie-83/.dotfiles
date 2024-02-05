@@ -362,3 +362,13 @@ vim.keymap.set("n", "],", "<Plug>(Marks-next) zz", { desc = "Next mark" })
 vim.keymap.set("n", "[,", "<Plug>(Marks-prev) zz", { desc = "Previous mark" })
 vim.keymap.set("n", ",,b", "<cmd> MarksListBuf <CR>", { desc = "List buffer marks" })
 vim.keymap.set("n", ",,a", "<cmd> MarksListAll <CR>", { desc = "List all marks" })
+
+-- UFO
+vim.keymap.set("n", "zR", function()
+    require("ufo").openAllFolds()
+    vim.o.foldlevel = 99
+end)
+vim.keymap.set("n", "zM", function()
+    require("ufo").closeAllFolds()
+    vim.o.foldlevel = 0
+end)
