@@ -4,8 +4,18 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<Esc>", ":noh <CR>", { desc = "Clear highlights" })
 
 -- Line numbers
-vim.keymap.set("n", "<leader>n", "<cmd> set nu! <CR>", { desc = "Toggle line number" })
-vim.keymap.set("n", "<leader>rn", "<cmd> set rnu! <CR>", { desc = "Toggle relative number" })
+vim.keymap.set(
+    "n",
+    "<leader>n",
+    "<cmd> set nu! <CR>",
+    { desc = "Toggle line number" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>rn",
+    "<cmd> set rnu! <CR>",
+    { desc = "Toggle relative number" }
+)
 
 -- Move through wrapped lines
 vim.keymap.set(
@@ -132,18 +142,48 @@ vim.keymap.set("v", "<leader>ca", function()
 end, { desc = "LSP code action" })
 
 -- Telescope
-vim.keymap.set("n", "<leader>ff", "<cmd> Telescope find_files <CR>", { desc = "Find files" })
-vim.keymap.set("n", "<leader>fw", "<cmd> Telescope live_grep <CR>", { desc = "Live grep" })
-vim.keymap.set("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Find buffers" })
-vim.keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", { desc = "Help page" })
-vim.keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Find oldfiles" })
+vim.keymap.set(
+    "n",
+    "<leader>ff",
+    "<cmd> Telescope find_files <CR>",
+    { desc = "Find files" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fw",
+    "<cmd> Telescope live_grep <CR>",
+    { desc = "Live grep" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fb",
+    "<cmd> Telescope buffers <CR>",
+    { desc = "Find buffers" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fh",
+    "<cmd> Telescope help_tags <CR>",
+    { desc = "Help page" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>fo",
+    "<cmd> Telescope oldfiles <CR>",
+    { desc = "Find oldfiles" }
+)
 vim.keymap.set(
     "n",
     "<leader>fz",
     "<cmd> Telescope current_buffer_fuzzy_find <CR>",
     { desc = "Find in current buffer" }
 )
-vim.keymap.set("n", "<leader>ma", "<cmd> Telescope marks <CR>", { desc = "telescope bookmarks" })
+vim.keymap.set(
+    "n",
+    "<leader>ma",
+    "<cmd> Telescope marks <CR>",
+    { desc = "telescope bookmarks" }
+)
 vim.keymap.set(
     "n",
     "<leader>fW",
@@ -229,10 +269,30 @@ end, { desc = "Toggle Deleted Hunks" })
 -- vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "window right" })
 -- vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "window down" })
 -- vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "window up" })
-vim.keymap.set("n", "<C-h>", "<cmd> KittyNavigateLeft<CR>", { desc = "window left" })
-vim.keymap.set("n", "<C-l>", "<cmd> KittyNavigateRight<CR>", { desc = "window right" })
-vim.keymap.set("n", "<C-j>", "<cmd> KittyNavigateDown<CR>", { desc = "window down" })
-vim.keymap.set("n", "<C-k>", "<cmd> KittyNavigateUp<CR>", { desc = "window up" })
+vim.keymap.set(
+    "n",
+    "<C-h>",
+    "<cmd> KittyNavigateLeft<CR>",
+    { desc = "window left" }
+)
+vim.keymap.set(
+    "n",
+    "<C-l>",
+    "<cmd> KittyNavigateRight<CR>",
+    { desc = "window right" }
+)
+vim.keymap.set(
+    "n",
+    "<C-j>",
+    "<cmd> KittyNavigateDown<CR>",
+    { desc = "window down" }
+)
+vim.keymap.set(
+    "n",
+    "<C-k>",
+    "<cmd> KittyNavigateUp<CR>",
+    { desc = "window up" }
+)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
@@ -243,19 +303,54 @@ vim.keymap.set(
     "<cmd> DapToggleBreakpoint <CR>",
     { desc = "Add breakpoint to line" }
 )
-vim.keymap.set("n", "<leader>dx", require("dap").clear_breakpoints, { desc = "Clear breakpoints" })
+vim.keymap.set(
+    "n",
+    "<leader>dx",
+    require("dap").clear_breakpoints,
+    { desc = "Clear breakpoints" }
+)
 vim.keymap.set(
     "n",
     "<leader>dc",
     "<cmd> DapContinue <CR>",
     { desc = "Start or continue the debugger" }
 )
-vim.keymap.set("n", "<leader>dt", "<cmd> DapTerminate <CR>", { desc = "Terminate the debugger" })
-vim.keymap.set("n", "<leader>dj", "<cmd> DapStepInto <CR>", { desc = "Step in" })
-vim.keymap.set("n", "<leader>dk", "<cmd> DapStepOut <CR>", { desc = "Step out" })
-vim.keymap.set("n", "<leader>dl", "<cmd> DapStepOver <CR>", { desc = "Step over" })
-vim.keymap.set("n", "<leader>dr", "<cmd> DapToggleRepl <CR>", { desc = "Toggle repl" })
-vim.keymap.set("n", "<leader>dp", "<cmd> DapPause <CR>", { desc = "Pause debugger" })
+vim.keymap.set(
+    "n",
+    "<leader>dt",
+    "<cmd> DapTerminate <CR>",
+    { desc = "Terminate the debugger" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dj",
+    "<cmd> DapStepInto <CR>",
+    { desc = "Step in" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dk",
+    "<cmd> DapStepOut <CR>",
+    { desc = "Step out" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dl",
+    "<cmd> DapStepOver <CR>",
+    { desc = "Step over" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dr",
+    "<cmd> DapToggleRepl <CR>",
+    { desc = "Toggle repl" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dp",
+    "<cmd> DapPause <CR>",
+    { desc = "Pause debugger" }
+)
 vim.keymap.set("n", "<leader>du", function()
     require("dapui").toggle({ reset = true })
 end, { desc = "Toggle Dap UI" })
@@ -278,27 +373,63 @@ vim.keymap.set(
 )
 
 -- tabufline
-vim.keymap.set("n", "<S-l>", "<cmd> BufferLineCycleNext <CR>", { desc = "Goto next buffer" })
-vim.keymap.set("n", "<S-h>", "<cmd> BufferLineCyclePrev <CR>", { desc = "Goto prev buffer" })
+vim.keymap.set(
+    "n",
+    "<S-l>",
+    "<cmd> BufferLineCycleNext <CR>",
+    { desc = "Goto next buffer" }
+)
+vim.keymap.set(
+    "n",
+    "<S-h>",
+    "<cmd> BufferLineCyclePrev <CR>",
+    { desc = "Goto prev buffer" }
+)
 
 -- flash
 -- vim.keymap.set("n", "<leader>mt", function() require("flash").treesitter_search() end, {desc="Treesitter Search",})
 
 -- leap
-vim.keymap.set({ "n", "x", "o" }, "m", "<Plug>(leap-forward-to)", { desc = "Leap forward" })
-vim.keymap.set({ "n", "x", "o" }, "M", "<Plug>(leap-backward-to)", { desc = "Leap backward" })
+vim.keymap.set(
+    { "n", "x", "o" },
+    "m",
+    "<Plug>(leap-forward-to)",
+    { desc = "Leap forward" }
+)
+vim.keymap.set(
+    { "n", "x", "o" },
+    "M",
+    "<Plug>(leap-backward-to)",
+    { desc = "Leap backward" }
+)
 -- vim.keymap.set({ "n" }, ",", "m", { desc = "Place mark" })
 
 -- treesj
-vim.keymap.set("n", "<leader>tt", "<cmd> TSJToggle <CR>", { desc = "Toggle split/join block" })
-vim.keymap.set("n", "<leader>tj", "<cmd> TSJJoint <CR>", { desc = "Join block" })
-vim.keymap.set("n", "<leader>sj", "<cmd> TSJSplit <CR>", { desc = "Split block" })
+vim.keymap.set(
+    "n",
+    "<leader>tt",
+    "<cmd> TSJToggle <CR>",
+    { desc = "Toggle split/join block" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>tj",
+    "<cmd> TSJJoint <CR>",
+    { desc = "Join block" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>sj",
+    "<cmd> TSJSplit <CR>",
+    { desc = "Split block" }
+)
 
 -- nvimtree
 vim.keymap.set("n", "<leader>e", function()
     local path
     if vim.bo.filetype == "norg" then
-        path = require("neorg.modules.core.dirman.module").public.get_current_workspace()[2]
+        path =
+            require("neorg.modules.core.dirman.module").public.get_current_workspace()[2]
     else
         path = vim.fn.getcwd()
     end
@@ -313,7 +444,12 @@ vim.keymap.set("t", "<Esc>", function()
         return [[<C-\><C-n>]]
     end
 end, { desc = "Terminal normal mode", expr = true })
-vim.keymap.set("n", "<leader>th", "<cmd> term <CR>", { desc = "Open terminal in current pane" })
+vim.keymap.set(
+    "n",
+    "<leader>th",
+    "<cmd> term <CR>",
+    { desc = "Open terminal in current pane" }
+)
 vim.keymap.set(
     "n",
     "<leader>ts",
@@ -328,11 +464,26 @@ vim.keymap.set(
 )
 
 -- oil
-vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Toggle Oil" })
+vim.keymap.set(
+    "n",
+    "<leader>o",
+    require("oil").toggle_float,
+    { desc = "Toggle Oil" }
+)
 
 -- Neorg
-vim.keymap.set("n", "<leader><leader>i", "<cmd> Neorg index <CR>", { desc = "Neorg index" })
-vim.keymap.set("n", "<leader><leader>r", "<cmd> Neorg return <CR>", { desc = "Neorg index" })
+vim.keymap.set(
+    "n",
+    "<leader><leader>i",
+    "<cmd> Neorg index <CR>",
+    { desc = "Neorg index" }
+)
+vim.keymap.set(
+    "n",
+    "<leader><leader>r",
+    "<cmd> Neorg return <CR>",
+    { desc = "Neorg index" }
+)
 vim.keymap.set(
     "n",
     "<leader><leader>n",
@@ -355,13 +506,33 @@ end, {})
 vim.keymap.set("n", ",", "<Plug>(Marks-set)", { desc = "Set mark" })
 vim.keymap.set("n", ",,,", "<Plug>(Marks-setnext)", { desc = "Set next mark" })
 vim.keymap.set("n", ",,t", "<Plug>(Marks-toggle)", { desc = "Toggle mark" })
-vim.keymap.set("n", ",,dd", "<Plug>(Marks-deleteline)", { desc = "Delete mark" })
-vim.keymap.set("n", ",,db", "<Plug>(Marks-deletebuf)", { desc = "Delete all marks in buf" })
+vim.keymap.set(
+    "n",
+    ",,dd",
+    "<Plug>(Marks-deleteline)",
+    { desc = "Delete mark" }
+)
+vim.keymap.set(
+    "n",
+    ",,db",
+    "<Plug>(Marks-deletebuf)",
+    { desc = "Delete all marks in buf" }
+)
 vim.keymap.set("n", ",,p", "<Plug>(Marks-preview)", { desc = "Preview mark" })
 vim.keymap.set("n", "],", "<Plug>(Marks-next) zz", { desc = "Next mark" })
 vim.keymap.set("n", "[,", "<Plug>(Marks-prev) zz", { desc = "Previous mark" })
-vim.keymap.set("n", ",,b", "<cmd> MarksListBuf <CR>", { desc = "List buffer marks" })
-vim.keymap.set("n", ",,a", "<cmd> MarksListAll <CR>", { desc = "List all marks" })
+vim.keymap.set(
+    "n",
+    ",,b",
+    "<cmd> MarksListBuf <CR>",
+    { desc = "List buffer marks" }
+)
+vim.keymap.set(
+    "n",
+    ",,a",
+    "<cmd> MarksListAll <CR>",
+    { desc = "List all marks" }
+)
 
 -- UFO
 vim.keymap.set("n", "zR", function()
