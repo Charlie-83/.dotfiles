@@ -45,14 +45,13 @@ vim.keymap.set(
 )
 
 -- Buffers
-vim.keymap.set("n", "<leader>x", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>x", function()
     if vim.bo.buftype == "terminal" then
         vim.cmd("bd!")
-        return
+    elseif vim.bo.buftype == "quickfix" then
+        vim.cmd("q")
     elseif vim.api.nvim_buf_get_option(0, "modified") then
         vim.notify("Buffer is modified")
-        return
     else
         local bufnr = vim.api.nvim_get_current_buf()
         local windows = vim.api.nvim_list_wins()
@@ -278,8 +277,8 @@ vim.keymap.set(
 )
 
 -- tabufline
-vim.keymap.set("n", "<S-l>", "<cmd> bn <CR>", { desc = "Goto next buffer" })
-vim.keymap.set("n", "<S-h>", "<cmd> bp <CR>", { desc = "Goto prev buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd> BufferLineCycleNext <CR>", { desc = "Goto next buffer" })
+vim.keymap.set("n", "<S-h>", "<cmd> BufferLineCyclePrev <CR>", { desc = "Goto prev buffer" })
 
 -- flash
 -- vim.keymap.set("n", "<leader>mt", function() require("flash").treesitter_search() end, {desc="Treesitter Search",})

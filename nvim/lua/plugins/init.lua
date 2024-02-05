@@ -120,6 +120,16 @@ local plugins = {
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
         config = true,
+        opts = {
+            options = {
+                custom_filter = function(buf_number, buf_numbers)
+                    if vim.bo[buf_number].buftype == "quickfix" then
+                        return false
+                    end
+                    return true
+                end,
+            },
+        },
     },
     {
         "folke/trouble.nvim",
