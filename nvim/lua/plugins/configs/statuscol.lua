@@ -11,7 +11,7 @@ require("statuscol").setup({
     },
     relculright = true,
     segments = {
-        { sign = { name = { "Marks_.*" }, colwidth = 1 } },
+        { sign = { name = { "Dap.*", "Marks_.*" }, colwidth = 1 } },
         { sign = { name = { "DiagnosticSign.*" }, colwidth = 1 } },
         {
             text = { builtin.foldfunc },
