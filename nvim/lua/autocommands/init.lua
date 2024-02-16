@@ -19,3 +19,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         vim.wo.wrap = false
     end,
 })
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = { "*.frag", "*.vert", "*.geom" },
+    callback = function()
+        vim.bo.filetype = "glsl"
+    end,
+})
