@@ -43,6 +43,10 @@ vim.keymap.set(
     { desc = "Move down", expr = true }
 )
 
+--
+vim.keymap.set("n", "n", "nzz", {})
+vim.keymap.set("n", "N", "Nzz", {})
+
 -- Formatting
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
 
