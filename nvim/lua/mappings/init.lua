@@ -191,7 +191,7 @@ vim.keymap.set(
 vim.keymap.set(
     "n",
     "<leader>fW",
-    ":lua require'telescope.builtin'.live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-u' } } <CR>",
+    ":lua require'telescope.builtin'.live_grep{ vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-u', '-L'} } <CR>",
     { desc = "Live grep all" }
 )
 vim.keymap.set(
