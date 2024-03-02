@@ -10,7 +10,7 @@ dap.configurations.cpp = {
     {
         name = "aseprite",
         type = "codelldb",
-        request = "attach",
+        request = "launch",
         program = "${workspaceFolder}/build/bin/aseprite",
     },
 }

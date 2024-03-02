@@ -357,6 +357,12 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>du", function()
     require("dapui").toggle({ reset = true })
+    require("dapui").close({ layout = 3 })
+end, { desc = "Toggle Dap UI" })
+
+vim.keymap.set("n", "<leader>dz", function()
+    require("dapui").toggle({ reset = true, layout = 3 })
+    require("dapui").toggle({ reset = true, layout = 2 })
 end, { desc = "Toggle Dap UI" })
 
 -- LazyGit
