@@ -47,14 +47,11 @@ vim.keymap.set(
 vim.keymap.set("n", "n", "nzz", {})
 vim.keymap.set("n", "N", "Nzz", {})
 
--- Formatting
-vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
-
 -- Build
 vim.keymap.set(
     "n",
     "<leader>b",
-    "<cmd> term cmake --build build <CR> <cmd> execute ':file Build' strftime('%H:%M:%S')  <CR>",
+    "<cmd> term cmake --build ~/source/engine/build && cmake --build ~/source/willow/build <CR> <cmd> execute ':file Build' strftime('%H:%M:%S')  <CR>",
     { desc = "Build with cmake" }
 )
 
@@ -93,30 +90,38 @@ vim.keymap.set(
 )
 
 -- LSP
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
+
 vim.keymap.set("n", "gD", function()
     vim.lsp.buf.declaration()
 end, { desc = "LSP declaration" })
 vim.keymap.set("n", "gd", function()
     vim.lsp.buf.definition()
 end, { desc = "LSP definition" })
-vim.keymap.set("n", "K", function()
-    vim.lsp.buf.hover()
-end, { desc = "LSP hover" })
+vim.keymap.set("n", "gr", function()
+    vim.lsp.buf.references()
+end, { desc = "LSP references" })
 vim.keymap.set("n", "gi", function()
     vim.lsp.buf.implementation()
 end, { desc = "LSP implementation" })
+
+vim.keymap.set("n", "K", function()
+    vim.lsp.buf.hover()
+end, { desc = "LSP hover" })
 vim.keymap.set("n", "<leader>ls", function()
     vim.lsp.buf.signature_help()
 end, { desc = "LSP signature help" })
 vim.keymap.set("n", "<leader>D", function()
     vim.lsp.buf.type_definition()
 end, { desc = "LSP definition type" })
-vim.keymap.set("n", "<leader>ca", function()
+vim.keymap.set({ "n", "v" }, "<leader>ca", function()
     vim.lsp.buf.code_action()
 end, { desc = "LSP code action" })
-vim.keymap.set("n", "gr", function()
-    vim.lsp.buf.references()
-end, { desc = "LSP references" })
+vim.keymap.set("n", "<leader>cr", function()
+    vim.lsp.buf.rename()
+end, { desc = "LSP rename" })
+
+-- Diagnostic
 vim.keymap.set("n", "<leader>f", function()
     vim.diagnostic.open_float({ border = "rounded" })
 end, { desc = "Floating diagnostic" })
@@ -130,20 +135,6 @@ vim.keymap.set("n", "]t", function()
 end, {
     desc = "Goto next diagnostic",
 })
-vim.keymap.set("n", "<leader>wa", function()
-    vim.lsp.buf.add_workspace_folder()
-end, { desc = "Add workspace folder" })
-vim.keymap.set("n", "<leader>wr", function()
-    vim.lsp.buf.remove_workspace_folder()
-end, {
-    desc = "Remove workspace folder",
-})
-vim.keymap.set("n", "<leader>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-end, { desc = "List workspace folders" })
-vim.keymap.set("v", "<leader>ca", function()
-    vim.lsp.buf.code_action()
-end, { desc = "LSP code action" })
 
 -- Telescope
 vim.keymap.set(
