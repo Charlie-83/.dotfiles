@@ -16,7 +16,7 @@ M = {
                 },
                 color = function(section)
                     if dap_running_flag then
-                        return { bg = "#b03215" }
+                        return { bg = "#F38BA8" }
                     end
                     return nil
                 end,

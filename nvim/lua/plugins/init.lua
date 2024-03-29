@@ -162,13 +162,15 @@ local plugins = {
         opts = {
             color_overrides = {
                 all = {
-                    base = "#111D1E",
-                    mantle = "#0D1617",
-                    crust = "#0D1617",
+                    base = "#111d1e",
+                    mantle = "#0d1617",
+                    crust = "#0d1617",
                     surface1 = "#274145",
-                    blue = "#19D08A",
-                    green = "#1ec96b",
-                    yellow = "#d96e4e",
+                    blue = "#19d19d",
+                    green = "#40cf6d",
+                    yellow = "#d68951",
+                    red = "#dc553a",
+                    maroon = "#db7772",
                 },
             },
         },
