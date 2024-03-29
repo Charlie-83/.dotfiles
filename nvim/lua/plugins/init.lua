@@ -83,7 +83,7 @@ local plugins = {
     },
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = "mfussenegger/nvim-dap",
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         config = function()
             require("plugins.configs.dap-ui")
         end,
@@ -212,11 +212,6 @@ local plugins = {
         end,
     },
     {
-        "m4xshen/hardtime.nvim",
-        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-        opts = {},
-    },
-    {
         "jakemason/ouroboros.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         ft = { "cpp" },
@@ -237,13 +232,6 @@ local plugins = {
                 "dapui_scopes",
             },
         },
-    },
-    {
-        "jay-babu/mason-nvim-dap.nvim",
-        dependencies = {
-            { "williamboman/mason.nvim", config = true },
-        },
-        opts = { handlers = {} },
     },
 }
 return plugins

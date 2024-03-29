@@ -292,65 +292,50 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- DAP
+dap = require("dap")
 vim.keymap.set(
     "n",
     "<leader>db",
-    "<cmd> DapToggleBreakpoint <CR>",
+    dap.toggle_breakpoint,
     { desc = "Add breakpoint to line" }
 )
+vim.keymap.set("n", "<leader>dB", function()
+    local condition = vim.fn.input("Condition: ")
+    condition = condition ~= "" and condition or nil
+    local count = vim.fn.input("Count: ")
+    count = count ~= "" and count or nil
+    local log = vim.fn.input("Log: ")
+    log = log ~= "" and log or nil
+    dap.set_breakpoint(condition, count, log)
+end, { desc = "Add breakpoint to line" })
 vim.keymap.set(
     "n",
     "<leader>dx",
-    require("dap").clear_breakpoints,
+    dap.clear_breakpoints,
     { desc = "Clear breakpoints" }
 )
 vim.keymap.set(
     "n",
     "<leader>dc",
-    "<cmd> DapContinue <CR>",
+    dap.continue,
     { desc = "Start or continue the debugger" }
 )
 vim.keymap.set(
     "n",
     "<leader>dt",
-    "<cmd> DapTerminate <CR>",
+    dap.terminate,
     { desc = "Terminate the debugger" }
 )
-vim.keymap.set(
-    "n",
-    "<leader>dj",
-    "<cmd> DapStepInto <CR>",
-    { desc = "Step in" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dk",
-    "<cmd> DapStepOut <CR>",
-    { desc = "Step out" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dl",
-    "<cmd> DapStepOver <CR>",
-    { desc = "Step over" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dr",
-    "<cmd> DapToggleRepl <CR>",
-    { desc = "Toggle repl" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dp",
-    "<cmd> DapPause <CR>",
-    { desc = "Pause debugger" }
-)
+vim.keymap.set("n", "<leader>dj", dap.step_into, { desc = "Step in" })
+vim.keymap.set("n", "<leader>dk", dap.step_out, { desc = "Step out" })
+vim.keymap.set("n", "<leader>dl", dap.step_over, { desc = "Step over" })
+vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle repl" })
+vim.keymap.set("n", "<leader>dp", dap.pause, { desc = "Pause debugger" })
+
 vim.keymap.set("n", "<leader>du", function()
     require("dapui").toggle({ reset = true })
     require("dapui").close({ layout = 3 })
 end, { desc = "Toggle Dap UI" })
-
 vim.keymap.set("n", "<leader>dz", function()
     require("dapui").toggle({ reset = true, layout = 3 })
     require("dapui").toggle({ reset = true, layout = 2 })
