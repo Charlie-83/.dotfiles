@@ -154,11 +154,24 @@ local plugins = {
         version = "*",
         config = true,
     },
+    -- https://github.com/datyin/theme-ocean-green/blob/main/themes/dark-color-theme.json
     {
         "Charlie-83/catppuccin-nvim",
         name = "catppuccin",
         priority = 1000,
-        config = true,
+        opts = {
+            color_overrides = {
+                all = {
+                    base = "#111D1E",
+                    mantle = "#0D1617",
+                    crust = "#0D1617",
+                    surface1 = "#274145",
+                    blue = "#19D08A",
+                    green = "#1ec96b",
+                    yellow = "#d96e4e",
+                },
+            },
+        },
     },
     {
         "nvim-lualine/lualine.nvim",
