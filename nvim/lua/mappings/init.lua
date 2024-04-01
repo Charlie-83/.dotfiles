@@ -332,13 +332,34 @@ vim.keymap.set("n", "<leader>dl", dap.step_over, { desc = "Step over" })
 vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle repl" })
 vim.keymap.set("n", "<leader>dp", dap.pause, { desc = "Pause debugger" })
 
+DapState = 0
 vim.keymap.set("n", "<leader>du", function()
-    require("dapui").toggle({ reset = true })
-    require("dapui").close({ layout = 3 })
+    if DapState == 0 then
+        require("dapui").open({ reset = true, layout = 1 })
+        require("dapui").open({ reset = true, layout = 2 })
+        DapState = 1
+    elseif DapState == 1 then
+        require("dapui").close({ reset = true, layout = 1 })
+        require("dapui").close({ reset = true, layout = 2 })
+        DapState = 0
+    elseif DapState == 2 then
+        require("dapui").close({ reset = true, layout = 1 })
+        require("dapui").close({ reset = true, layout = 3 })
+        DapState = 0
+    end
 end, { desc = "Toggle Dap UI" })
 vim.keymap.set("n", "<leader>dz", function()
-    require("dapui").toggle({ reset = true, layout = 3 })
-    require("dapui").toggle({ reset = true, layout = 2 })
+    if DapState == 0 then
+        return
+    elseif DapState == 1 then
+        require("dapui").close({ reset = true, layout = 2 })
+        require("dapui").open({ reset = true, layout = 3 })
+        DapState = 2
+    elseif DapState == 2 then
+        require("dapui").close({ reset = true, layout = 3 })
+        require("dapui").open({ reset = true, layout = 2 })
+        DapState = 1
+    end
 end, { desc = "Toggle Dap UI" })
 
 -- LazyGit
