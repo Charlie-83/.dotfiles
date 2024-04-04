@@ -51,7 +51,7 @@ vim.keymap.set("n", "N", "Nzz", {})
 vim.keymap.set(
     "n",
     "<leader>b",
-    "<cmd> term cmake --build ~/source/engine/build && cmake --build ~/source/willow/build <CR> <cmd> execute ':file Build' strftime('%H:%M:%S')  <CR>",
+    "<cmd> term cmake --build ~/source/willow/engine/build && cmake --build ~/source/willow/build <CR> <cmd> execute ':file Build' strftime('%H:%M:%S')  <CR>",
     { desc = "Build with cmake" }
 )
 
