@@ -1,0 +1,27 @@
+prompt {
+    text-color: #19d19d;
+}
+entry {
+    text-color: #19d19d;
+    placeholder: "";
+}
+window {
+    background-color: #111d1e;
+    border: 0;
+}
+listview {
+    background-color: #111d1e;
+}
+element {
+    background-color: red;
+    border-color: red;
+    padding: 0;
+}
+element-text {
+    background-color: #111d1e;
+    text-color: #19d19d;
+}
+element-text.selected {
+    background-color: #19d19d;
+    text-color: #111d1e;
+}
