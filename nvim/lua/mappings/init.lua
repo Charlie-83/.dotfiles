@@ -433,14 +433,7 @@ vim.keymap.set(
 
 -- nvimtree
 vim.keymap.set("n", "<leader>e", function()
-    local path
-    if vim.bo.filetype == "norg" then
-        path =
-            require("neorg.modules.core.dirman.module").public.get_current_workspace()[2]
-    else
-        path = vim.fn.getcwd()
-    end
-    require("nvim-tree.api").tree.toggle({ find_file = true, path = path })
+    require("nvim-tree.api").tree.toggle({ find_file = true })
 end, { desc = "Focus nvimtree" })
 
 -- term
@@ -476,26 +469,6 @@ vim.keymap.set(
     "<leader>o",
     require("oil").toggle_float,
     { desc = "Toggle Oil" }
-)
-
--- Neorg
-vim.keymap.set(
-    "n",
-    "<leader><leader>i",
-    "<cmd> Neorg index <CR>",
-    { desc = "Neorg index" }
-)
-vim.keymap.set(
-    "n",
-    "<leader><leader>r",
-    "<cmd> Neorg return <CR>",
-    { desc = "Neorg index" }
-)
-vim.keymap.set(
-    "n",
-    "<leader><leader>n",
-    "<cmd> Neorg workspace notes <CR>",
-    { desc = "Neorg workspace notes" }
 )
 
 -- Snippets

@@ -191,27 +191,6 @@ local plugins = {
         dependencies = { "kevinhwang91/promise-async" },
     },
     {
-        "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("neorg").setup({
-                load = {
-                    ["core.defaults"] = {},
-                    ["core.concealer"] = {},
-                    ["core.dirman"] = {
-                        config = {
-                            workspaces = {
-                                notes = "~/notes",
-                            },
-                        },
-                    },
-                    ["core.summary"] = {},
-                },
-            })
-        end,
-    },
-    {
         "stevearc/oil.nvim",
         opts = {
             view_options = {
