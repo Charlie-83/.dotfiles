@@ -8,7 +8,7 @@ end
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("FileType", {
-    pattern = "cpp",
+    pattern = { "cpp", "c" },
     callback = function()
         local root_dir =
             vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
