@@ -7,6 +7,5 @@ vim.o.shiftwidth = 4
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
-vim.o.foldmethod = "indent"
 vim.o.relativenumber = true
 vim.o.cursorline = true

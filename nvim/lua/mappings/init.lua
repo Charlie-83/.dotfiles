@@ -514,12 +514,12 @@ vim.keymap.set(
     { desc = "List all marks" }
 )
 
--- UFO
-vim.keymap.set("n", "zR", function()
-    require("ufo").openAllFolds()
-    vim.o.foldlevel = 99
-end)
-vim.keymap.set("n", "zM", function()
-    require("ufo").closeAllFolds()
-    vim.o.foldlevel = 0
-end)
+-- -- UFO
+-- vim.keymap.set("n", "zR", function()
+--     require("ufo").openAllFolds()
+--     vim.o.foldlevel = 99
+-- end)
+-- vim.keymap.set("n", "zM", function()
+--     require("ufo").closeAllFolds()
+--     vim.o.foldlevel = 0
+-- end)
