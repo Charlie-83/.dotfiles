@@ -86,6 +86,20 @@ autocmd("FileType", {
     end,
 })
 
+autocmd("FileType", {
+    pattern = "glsl",
+    callback = function()
+        local root_dir =
+            vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
+        local client = vim.lsp.start({
+            name = "glsl-language-server",
+            cmd = { "glslls", "--stdin" },
+            root_dir = root_dir,
+        })
+        vim.lsp.buf_attach_client(0, client)
+    end,
+})
+
 function LspInfo()
     local bufnr = vim.api.nvim_create_buf(false, true)
     local lines = {}
