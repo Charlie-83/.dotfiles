@@ -1,3 +1,3 @@
 function findall
-    find / -name $argv 2> /dev/null
+    sudo find / -name $argv 2> /dev/null
 end
