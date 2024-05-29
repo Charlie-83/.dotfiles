@@ -6,7 +6,7 @@ title_align center
 gaps inner 10
 gaps outer 10
 
-exec_always feh --bg-fill /home/charlie/Downloads/forest.jpg
+exec_always feh --bg-fill /home/charlie/Pictures/desktop.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always picom -f
 
