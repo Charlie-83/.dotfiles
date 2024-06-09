@@ -10,6 +10,9 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     callback = function()
         vim.cmd("stopinsert")
+
+        -- Bit of a hack to make foldcolumn appear
+        vim.cmd("norm zxzR")
     end,
 })
 

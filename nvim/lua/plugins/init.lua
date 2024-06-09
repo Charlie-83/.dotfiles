@@ -184,13 +184,6 @@ local plugins = {
         end,
     },
     {
-        "kevinhwang91/nvim-ufo",
-        config = function()
-            require("plugins.configs.ufo")
-        end,
-        dependencies = { "kevinhwang91/promise-async" },
-    },
-    {
         "stevearc/oil.nvim",
         opts = {
             view_options = {

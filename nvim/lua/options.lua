@@ -9,3 +9,7 @@ vim.o.smartcase = true
 
 vim.o.relativenumber = true
 vim.o.cursorline = true
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldenable = false

@@ -1,4 +1,6 @@
 local builtin = require("statuscol.builtin")
+vim.o.foldcolumn = "1"
+vim.o.fillchars = "foldclose:,foldopen:"
 require("statuscol").setup({
     bt_ignore = { "terminal" },
     ft_ignore = {
