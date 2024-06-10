@@ -145,6 +145,13 @@ local plugins = {
         config = true,
     },
     {
+        "ggandor/leap-spooky.nvim",
+        config = true,
+        dependencies = {
+            "ggandor/leap.nvim",
+        },
+    },
+    {
         "kylechui/nvim-surround",
         version = "*",
         config = true,
