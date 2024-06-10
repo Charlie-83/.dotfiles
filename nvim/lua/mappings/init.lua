@@ -72,6 +72,9 @@ vim.keymap.set("n", "<leader>x", function()
             end
         end
         vim.cmd(string.format("bd %d", bufnr))
+        if vim.bo.buftype == "quickfix" then
+            vim.cmd("bn")
+        end
     end
 end, { desc = "Close buffer" })
 
