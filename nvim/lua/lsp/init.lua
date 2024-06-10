@@ -94,7 +94,7 @@ autocmd("FileType", {
     end,
 })
 
-function LspInfo()
+vim.api.nvim_create_user_command("LspInfo", function()
     local bufnr = vim.api.nvim_create_buf(false, true)
     local lines = {}
     for i, client in ipairs(vim.lsp.get_active_clients()) do
@@ -114,6 +114,4 @@ function LspInfo()
     vim.api.nvim_command("split")
     vim.api.nvim_command("b" .. bufnr)
     vim.api.nvim_buf_set_option(bufnr, "bufhidden", "delete")
-end
-
-vim.api.nvim_command("command! LspInfo lua LspInfo()")
+end, {})
