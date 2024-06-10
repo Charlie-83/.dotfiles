@@ -396,9 +396,6 @@ vim.keymap.set(
     { desc = "Goto prev buffer" }
 )
 
--- flash
--- vim.keymap.set("n", "<leader>mt", function() require("flash").treesitter_search() end, {desc="Treesitter Search",})
-
 -- leap
 vim.keymap.set(
     { "n", "x", "o" },
@@ -433,11 +430,6 @@ vim.keymap.set(
     "<cmd> TSJSplit <CR>",
     { desc = "Split block" }
 )
-
--- nvimtree
-vim.keymap.set("n", "<leader>e", function()
-    require("nvim-tree.api").tree.toggle({ find_file = true })
-end, { desc = "Focus nvimtree" })
 
 -- term
 vim.keymap.set("t", "<Esc>", function()

@@ -60,11 +60,6 @@ local plugins = {
         config = true,
     },
     {
-        "nvim-tree/nvim-tree.lua",
-        config = true,
-        opts = require("plugins.configs.nvim-tree"),
-    },
-    {
         "nvim-telescope/telescope.nvim",
         config = function()
             require("plugins.configs.telescope")
