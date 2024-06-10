@@ -57,7 +57,7 @@ vim.keymap.set(
 
 -- Buffers
 vim.keymap.set("n", "<leader>x", function()
-    if vim.bo.buftype == "terminal" then
+    if vim.bo.buftype == "terminal" or vim.api.nvim_buf_get_name(0) == "" then
         vim.cmd("bd!")
     elseif vim.bo.buftype == "quickfix" then
         vim.cmd("q")
