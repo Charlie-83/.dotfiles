@@ -20,12 +20,19 @@ autocmd("FileType", {
         vim.lsp.buf_attach_client(0, client)
     end,
 })
+
 autocmd("FileType", {
     pattern = "python",
     callback = function()
         local root_dir =
             vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
-        local client = vim.lsp.start({
+        local jedi = vim.lsp.start({
+            name = "Jedi",
+            cmd = { "jedi-language-server" },
+            root_dir = root_dir,
+        })
+        vim.lsp.buf_attach_client(0, jedi)
+        local ruff = vim.lsp.start({
             name = "Ruff",
             cmd = { "ruff-lsp" },
             root_dir = root_dir,
@@ -37,20 +44,7 @@ autocmd("FileType", {
                 },
             },
         })
-        vim.lsp.buf_attach_client(0, client)
-    end,
-})
-autocmd("FileType", {
-    pattern = "python",
-    callback = function()
-        local root_dir =
-            vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
-        local client = vim.lsp.start({
-            name = "Jedi",
-            cmd = { "jedi-language-server" },
-            root_dir = root_dir,
-        })
-        vim.lsp.buf_attach_client(0, client)
+        vim.lsp.buf_attach_client(0, ruff)
     end,
 })
 
