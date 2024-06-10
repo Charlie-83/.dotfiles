@@ -250,9 +250,6 @@ end, { desc = "Preview Hunk" })
 vim.keymap.set("n", "<leader>hb", function()
     require("gitsigns").blame_line({ full = true })
 end, { desc = "Blame Line" })
-vim.keymap.set("n", "<leader>hB", function()
-    require("gitsigns").toggle_current_line_blame()
-end, { desc = "Toggle Line Blame" })
 vim.keymap.set("n", "<leader>hd", function()
     require("gitsigns").diffthis()
 end, { desc = "Diff Against Index" })
@@ -508,3 +505,9 @@ vim.keymap.set(
     "<cmd> MarksListAll <CR>",
     { desc = "List all marks" }
 )
+
+-- Quickfix
+vim.keymap.set("n", "[q", "<cmd> cprevious <CR>", { desc = "Previous QF item" })
+vim.keymap.set("n", "]q", "<cmd> cnext <CR>", { desc = "Next QF item" })
+vim.keymap.set("n", "[l", "<cmd> lprevious <CR>", { desc = "Previous LL item" })
+vim.keymap.set("n", "]l", "<cmd> lnext <CR>", { desc = "Next LL item" })
