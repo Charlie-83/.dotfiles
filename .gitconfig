@@ -11,3 +11,5 @@
 	autoSetupRemote = true
 [pull]
 	rebase = true
+[core]
+    excludesFile = ~/.dotfiles/.gitignore_global
