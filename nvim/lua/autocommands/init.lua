@@ -29,3 +29,22 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         vim.bo.filetype = "glsl"
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "qf",
+    callback = function()
+        vim.keymap.set("n", "dd", function()
+            local current = vim.fn.line(".")
+            local qf = vim.fn.getqflist()
+            if #qf == 0 then
+                return
+            end
+            table.remove(qf, current)
+            vim.fn.setqflist(qf, "r")
+            vim.cmd("copen")
+            local new_position = current < #qf and current
+                or math.max(current - 1, 1)
+            vim.api.nvim_win_set_cursor(vim.fnwin_getid(), { new_position, 0 })
+        end, { buffer = 0 })
+    end,
+})

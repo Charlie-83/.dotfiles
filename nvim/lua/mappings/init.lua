@@ -511,3 +511,9 @@ vim.keymap.set("n", "[q", "<cmd> cprevious <CR>", { desc = "Previous QF item" })
 vim.keymap.set("n", "]q", "<cmd> cnext <CR>", { desc = "Next QF item" })
 vim.keymap.set("n", "[l", "<cmd> lprevious <CR>", { desc = "Previous LL item" })
 vim.keymap.set("n", "]l", "<cmd> lnext <CR>", { desc = "Next LL item" })
+vim.keymap.set(
+    "n",
+    "<leader>qa",
+    "<cmd> caddexpr expand('%') .. ':' .. line('.') .. ':' .. getline('.') "
+        .. "| copen <CR>"
+)
