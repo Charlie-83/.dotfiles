@@ -13,3 +13,5 @@
 	rebase = true
 [core]
     excludesFile = ~/.dotfiles/.gitignore_global
+[alias]
+    log = log --oneline
