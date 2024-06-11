@@ -54,10 +54,7 @@ local plugins = {
         config = function(_, opts)
             require("cmp").setup(opts)
         end,
-    },
-    {
-        "numToStr/Comment.nvim",
-        config = true,
+        event = "InsertEnter",
     },
     {
         "nvim-telescope/telescope.nvim",
