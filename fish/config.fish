@@ -1,7 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    export PATH="$PATH:/opt/flutter/bin"
-    fzf_key_bindings
+    export PATH="$PATH:/opt/flutter/bin:/home/charlie/.local/share/gem/ruby/3.0.0/bin"
 end
 
 if test -z $DISPLAY && test 1 -eq $XDG_VTNR
@@ -16,5 +15,5 @@ function fish_prompt
         echo -n (fish_git_prompt)
     end
     set_color green
-    echo -n '->>'
+    echo -n '🐸->>'
 end
