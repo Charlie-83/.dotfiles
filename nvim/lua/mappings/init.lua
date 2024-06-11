@@ -517,3 +517,10 @@ vim.keymap.set(
     "<cmd> caddexpr expand('%') .. ':' .. line('.') .. ':' .. getline('.') "
         .. "| copen <CR>"
 )
+
+-- Yanky
+vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set("n", "[y", "<Plug>(YankyPreviousEntry)")
+vim.keymap.set("n", "]y", "<Plug>(YankyNextEntry)")
+vim.keymap.set("n", "<leader>fy", "<cmd> Telescope yank_history <CR>")

@@ -236,5 +236,9 @@ local plugins = {
         event = { "User KittyScrollbackLaunch" },
         config = true,
     },
+    {
+        "gbprod/yanky.nvim",
+        config = true,
+    },
 }
 return plugins
