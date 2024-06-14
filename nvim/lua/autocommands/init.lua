@@ -55,3 +55,10 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.keymap.set("n", "q", "<cmd>q<CR>", { buffer = 0 })
     end,
 })
+
+vim.api.nvim_create_autocmd("Filetype", {
+    pattern = "json",
+    callback = function()
+        vim.bo.shiftwidth = 2
+    end,
+})
