@@ -57,24 +57,27 @@ vim.keymap.set(
 
 -- Buffers
 vim.keymap.set("n", "<leader>x", function()
+    if vim.bo.buftype == "quickfix" then
+        vim.cmd("bn")
+    end
+    local force = false
     if vim.bo.buftype == "terminal" or vim.api.nvim_buf_get_name(0) == "" then
-        vim.cmd("bd!")
-    elseif vim.bo.buftype == "quickfix" then
-        vim.cmd("q")
+        force = true
     elseif vim.api.nvim_buf_get_option(0, "modified") then
         vim.notify("Buffer is modified")
+        return
+    end
+    local bufnr = vim.api.nvim_get_current_buf()
+    local windows = vim.api.nvim_list_wins()
+    for _, window in ipairs(windows) do
+        if vim.api.nvim_win_get_buf(window) == bufnr then
+            vim.fn.win_execute(window, "bn")
+        end
+    end
+    if force then
+        vim.cmd(string.format("bd! %d", bufnr))
     else
-        local bufnr = vim.api.nvim_get_current_buf()
-        local windows = vim.api.nvim_list_wins()
-        for _, window in ipairs(windows) do
-            if vim.api.nvim_win_get_buf(window) == bufnr then
-                vim.fn.win_execute(window, "bn")
-            end
-        end
         vim.cmd(string.format("bd %d", bufnr))
-        if vim.bo.buftype == "quickfix" then
-            vim.cmd("bn")
-        end
     end
 end, { desc = "Close buffer" })
 
@@ -507,8 +510,8 @@ vim.keymap.set(
 )
 
 -- Quickfix
-vim.keymap.set("n", "[q", "<cmd> cprevious <CR>", { desc = "Previous QF item" })
-vim.keymap.set("n", "]q", "<cmd> cnext <CR>", { desc = "Next QF item" })
+vim.keymap.set("n", "[c", "<cmd> cprevious <CR>", { desc = "Previous QF item" })
+vim.keymap.set("n", "]c", "<cmd> cnext <CR>", { desc = "Next QF item" })
 vim.keymap.set("n", "[l", "<cmd> lprevious <CR>", { desc = "Previous LL item" })
 vim.keymap.set("n", "]l", "<cmd> lnext <CR>", { desc = "Next LL item" })
 vim.keymap.set(

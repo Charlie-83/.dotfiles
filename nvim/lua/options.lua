@@ -14,3 +14,5 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldenable = false
 vim.o.foldlevel = 999
+
+vim.o.mouse = ""

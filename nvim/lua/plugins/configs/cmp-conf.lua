@@ -3,7 +3,7 @@ local cmp = require("cmp")
 local options = {
     snippet = {
         expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            vim.snippet.expand(args.body)
         end,
     },
     mapping = {
