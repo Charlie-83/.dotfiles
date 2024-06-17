@@ -502,3 +502,21 @@ vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
 vim.keymap.set("n", "[y", "<Plug>(YankyPreviousEntry)")
 vim.keymap.set("n", "]y", "<Plug>(YankyNextEntry)")
 vim.keymap.set("n", "<leader>fy", "<cmd> Telescope yank_history <CR>")
+
+-- Window resizing
+vim.keymap.set("n", "<leader>wt", function()
+    local count = vim.v.count1
+    vim.cmd("resize +" .. count)
+end, { desc = "Make window taller" })
+vim.keymap.set("n", "<leader>ws", function()
+    local count = vim.v.count1
+    vim.cmd("resize -" .. count)
+end, { desc = "Make window shorter" })
+vim.keymap.set("n", "<leader>ww", function()
+    local count = vim.v.count1
+    vim.cmd("vertical resize +" .. count)
+end, { desc = "Make window wider" })
+vim.keymap.set("n", "<leader>wn", function()
+    local count = vim.v.count1
+    vim.cmd("vertical resize -" .. count)
+end, { desc = "Make window narrower" })
