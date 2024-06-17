@@ -263,10 +263,6 @@ vim.keymap.set("n", "<leader>hx", function()
     require("gitsigns").toggle_deleted()
 end, { desc = "Toggle Deleted Hunks" })
 
--- vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "window left" })
--- vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "window right" })
--- vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "window down" })
--- vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "window up" })
 vim.keymap.set(
     "n",
     "<C-h>",
@@ -429,33 +425,6 @@ vim.keymap.set(
     "<leader>sj",
     "<cmd> TSJSplit <CR>",
     { desc = "Split block" }
-)
-
--- term
-vim.keymap.set("t", "<Esc>", function()
-    if string.sub(vim.api.nvim_buf_get_name(0), -7, -1) == "lazygit" then
-        return "<Esc>"
-    else
-        return [[<C-\><C-n>]]
-    end
-end, { desc = "Terminal normal mode", expr = true })
-vim.keymap.set(
-    "n",
-    "<leader>th",
-    "<cmd> term <CR>",
-    { desc = "Open terminal in current pane" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>ts",
-    "<cmd> split term://fish <CR>",
-    { desc = "Open terminal horizontal" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>tv",
-    "<cmd> vsplit term://fish <CR>",
-    { desc = "Open terminal vertical" }
 )
 
 -- oil
