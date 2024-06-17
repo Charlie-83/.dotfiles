@@ -57,7 +57,11 @@ ls.add_snippets("cpp", {
             end
         end),
     }),
-    s("test", { t("hello "), i(1), t(" hi "), i(2) }),
+    s("inc", {
+        t("#include <"),
+        i(1),
+        t(">"),
+    }),
 }, { key = "cpp" })
 
 require("luasnip.loaders.from_lua").lazy_load({ include = { "cpp" } })
