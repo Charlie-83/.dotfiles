@@ -124,6 +124,13 @@ local plugins = {
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            modes = {
+                symbols = {
+                    win = { position = "top" },
+                },
+            },
+        },
     },
     {
         "ggandor/flit.nvim",

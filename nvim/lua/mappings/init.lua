@@ -368,14 +368,20 @@ vim.keymap.set("n", "<leader>gg", "<cmd> LazyGit<cr>", { desc = "LazyGit" })
 vim.keymap.set(
     "n",
     "<leader>tw",
-    "<cmd> TroubleToggle workspace_diagnostics<CR>",
-    { desc = "Toggle Trouble (workspace)" }
+    "<cmd> Trouble diagnostics toggle<CR>",
+    { desc = "Toggle Trouble diagnostics (workspace)" }
 )
 vim.keymap.set(
     "n",
     "<leader>td",
-    "<cmd> TroubleToggle document_diagnostics<CR>",
-    { desc = "Toggle Trouble (document)" }
+    "<cmd> Trouble diagnostics toggle filter.buf=0<CR>",
+    { desc = "Toggle Trouble diagnostics (document)" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>ts",
+    "<cmd> Trouble symbols toggle <CR>",
+    { desc = "Toggle Trouble symbols" }
 )
 
 -- tabufline
