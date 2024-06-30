@@ -9,11 +9,11 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     callback = function()
-        -- When opening file with Telescope, it often starts in insert mode
-        vim.cmd("stopinsert")
         -- Bit of a hack to make foldcolumn appear
         vim.cmd("norm zxzR")
         vim.o.foldlevel = 99
+        -- When opening file with Telescope, it often starts in insert mode
+        vim.cmd("stopinsert")
     end,
 })
 
