@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd("FileType", {
             vim.cmd("copen")
             local new_position = current < #qf and current
                 or math.max(current - 1, 1)
-            vim.api.nvim_win_set_cursor(vim.fnwin_getid(), { new_position, 0 })
+            vim.api.nvim_win_set_cursor(vim.fn.win_getid(), { new_position, 0 })
         end, { buffer = 0 })
     end,
 })
