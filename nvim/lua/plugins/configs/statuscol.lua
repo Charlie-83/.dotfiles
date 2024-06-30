@@ -3,17 +3,9 @@ vim.o.foldcolumn = "1"
 vim.o.fillchars = "foldclose:,foldopen:"
 require("statuscol").setup({
     bt_ignore = { "terminal" },
-    ft_ignore = {
-        "dap-repl",
-        "dapui_console",
-        "dapui_watches",
-        "dapui_stacks",
-        "dapui_breakpoints",
-        "dapui_scopes",
-    },
     relculright = true,
     segments = {
-        { sign = { name = { "Dap.*", "Marks_.*" }, colwidth = 1 } },
+        { sign = { name = { "Marks_.*", "Gdb*" }, colwidth = 1 } },
         { sign = { name = { "DiagnosticSign.*" }, colwidth = 1 } },
         {
             text = { builtin.foldfunc },

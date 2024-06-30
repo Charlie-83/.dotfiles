@@ -74,19 +74,6 @@ local plugins = {
         "knubie/vim-kitty-navigator",
     },
     {
-        "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-        config = function()
-            require("plugins.configs.dap-ui")
-        end,
-    },
-    {
-        "mfussenegger/nvim-dap",
-        config = function()
-            require("plugins.configs.dap")
-        end,
-    },
-    {
         "nvimtools/none-ls.nvim",
         opts = function()
             return require("plugins.configs.null-ls")
@@ -244,6 +231,9 @@ local plugins = {
     {
         "gbprod/yanky.nvim",
         config = true,
+    },
+    {
+        "sakhnik/nvim-gdb",
     },
 }
 return plugins

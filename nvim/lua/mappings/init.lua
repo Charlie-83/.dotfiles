@@ -291,75 +291,72 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- DAP
-dap = require("dap")
 vim.keymap.set(
     "n",
     "<leader>db",
-    dap.toggle_breakpoint,
+    "<cmd>GdbBreakpointToggle<CR>",
     { desc = "Add breakpoint to line" }
 )
-vim.keymap.set("n", "<leader>dB", function()
-    local condition = vim.fn.input("Condition: ")
-    condition = condition ~= "" and condition or nil
-    local count = vim.fn.input("Count: ")
-    count = count ~= "" and count or nil
-    local log = vim.fn.input("Log: ")
-    log = log ~= "" and log or nil
-    dap.set_breakpoint(condition, count, log)
-end, { desc = "Add breakpoint to line" })
+-- vim.keymap.set("n", "<leader>dB", function()
+--     local condition = vim.fn.input("Condition: ")
+--     condition = condition ~= "" and condition or nil
+--     local count = vim.fn.input("Count: ")
+--     count = count ~= "" and count or nil
+--     local log = vim.fn.input("Log: ")
+--     log = log ~= "" and log or nil
+--     dap.set_breakpoint(condition, count, log)
+-- end, { desc = "Add breakpoint to line" })
 vim.keymap.set(
     "n",
     "<leader>dx",
-    dap.clear_breakpoints,
+    "<cmd>GdbBreakpointClearAll<CR>",
     { desc = "Clear breakpoints" }
 )
 vim.keymap.set(
     "n",
     "<leader>dc",
-    dap.continue,
-    { desc = "Start or continue the debugger" }
+    "<cmd>GdbContinue<CR>",
+    { desc = "Continue the debugger" }
 )
 vim.keymap.set(
     "n",
     "<leader>dt",
-    dap.terminate,
-    { desc = "Terminate the debugger" }
+    "<cmd>GdbDebugStop<CR>",
+    { desc = "Stop debugger" }
 )
-vim.keymap.set("n", "<leader>dj", dap.step_into, { desc = "Step in" })
-vim.keymap.set("n", "<leader>dk", dap.step_out, { desc = "Step out" })
-vim.keymap.set("n", "<leader>dl", dap.step_over, { desc = "Step over" })
-vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle repl" })
-vim.keymap.set("n", "<leader>dp", dap.pause, { desc = "Pause debugger" })
-
-DapState = 0
-vim.keymap.set("n", "<leader>du", function()
-    if DapState == 0 then
-        require("dapui").open({ reset = true, layout = 1 })
-        require("dapui").open({ reset = true, layout = 2 })
-        DapState = 1
-    elseif DapState == 1 then
-        require("dapui").close({ reset = true, layout = 1 })
-        require("dapui").close({ reset = true, layout = 2 })
-        DapState = 0
-    elseif DapState == 2 then
-        require("dapui").close({ reset = true, layout = 1 })
-        require("dapui").close({ reset = true, layout = 3 })
-        DapState = 0
-    end
-end, { desc = "Toggle Dap UI" })
-vim.keymap.set("n", "<leader>dz", function()
-    if DapState == 0 then
-        return
-    elseif DapState == 1 then
-        require("dapui").close({ reset = true, layout = 2 })
-        require("dapui").open({ reset = true, layout = 3 })
-        DapState = 2
-    elseif DapState == 2 then
-        require("dapui").close({ reset = true, layout = 3 })
-        require("dapui").open({ reset = true, layout = 2 })
-        DapState = 1
-    end
-end, { desc = "Toggle Dap UI" })
+vim.keymap.set("n", "<leader>dj", "<cmd>GdbStep<CR>", { desc = "Step in" })
+vim.keymap.set("n", "<leader>dk", "<cmd>GdbFinish<CR>", { desc = "Step out" })
+vim.keymap.set("n", "<leader>dl", "<cmd>GdbNext<CR>", { desc = "Step over" })
+vim.keymap.set(
+    "n",
+    "<leader>dp",
+    "<cmd>GdbInterrupt<CR>",
+    { desc = "Pause debugger" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dz",
+    "<cmd>GdbFrame<CR>",
+    { desc = "Jump to current" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dK",
+    "<cmd>GdbEvalWord<CR>",
+    { desc = "Evaluate word under cursor" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dqb",
+    "<cmd>GdbLopenBreakpoints<CR>",
+    { desc = "List breakpoints" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>dqt",
+    "<cmd>GdbLopenBacktrace<CR>",
+    { desc = "List trace" }
+)
 
 -- LazyGit
 vim.keymap.set("n", "<leader>gg", "<cmd> LazyGit<cr>", { desc = "LazyGit" })
