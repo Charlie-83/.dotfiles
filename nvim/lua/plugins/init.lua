@@ -74,19 +74,6 @@ local plugins = {
         "knubie/vim-kitty-navigator",
     },
     {
-        "nvimtools/none-ls.nvim",
-        opts = function()
-            return require("plugins.configs.null-ls")
-        end,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvimtools/none-ls-extras.nvim",
-        },
-    },
-    {
-        "folke/neodev.nvim",
-    },
-    {
         "kdheepak/lazygit.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -234,6 +221,9 @@ local plugins = {
     },
     {
         "sakhnik/nvim-gdb",
+    },
+    {
+        "creativenull/efmls-configs-nvim",
     },
 }
 return plugins

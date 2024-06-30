@@ -51,15 +51,24 @@ autocmd("FileType", {
 autocmd("FileType", {
     pattern = "lua",
     callback = function()
-        local root_dir = vim.fs.dirname(
-            vim.fs.find({ "lazy-lock.json" }, { upward = true })[1]
-        )
+        local root_dir =
+            vim.fs.dirname(vim.fs.find({ "lazy-lock.json" }, {})[1])
         local client = vim.lsp.start({
-            before_init = require("neodev.lsp").before_init,
             name = "lua-ls",
             cmd = { "lua-language-server" },
             root_dir = root_dir,
-            capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            on_init = function(client)
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider =
+                    false
+            end,
+            settings = {
+                Lua = {
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                },
+            },
         })
         vim.lsp.buf_attach_client(0, client)
     end,
@@ -94,10 +103,40 @@ autocmd("FileType", {
     end,
 })
 
+local languages = {
+    python = { require("efmls-configs.linters.mypy") },
+    lua = { require("efmls-configs.formatters.stylua") },
+    glsl = { require("efmls-configs.formatters.clang_format") },
+    json = {
+        require("efmls-configs.formatters.jq"),
+        require("efmls-configs.linters.jq"),
+    },
+}
+autocmd("FileType", {
+    pattern = vim.tbl_keys(languages),
+    callback = function()
+        local root_dir =
+            vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
+        local client = vim.lsp.start({
+            name = "efm-langserver",
+            cmd = { "efm-langserver" },
+            root_dir = root_dir,
+            settings = {
+                languages = languages,
+            },
+            init_options = {
+                documentFormatting = true,
+                documentRangeFormatting = true,
+            },
+        })
+        vim.lsp.buf_attach_client(0, client)
+    end,
+})
+
 vim.api.nvim_create_user_command("LspInfo", function()
     local bufnr = vim.api.nvim_create_buf(false, true)
     local lines = {}
-    for i, client in ipairs(vim.lsp.get_active_clients()) do
+    for _, client in ipairs(vim.lsp.get_clients()) do
         table.insert(lines, string.format("ID: %s", client.id))
         table.insert(lines, string.format("Name: %s", client.name))
         table.insert(lines, "Config: ")
