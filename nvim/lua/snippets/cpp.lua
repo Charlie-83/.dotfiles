@@ -24,7 +24,7 @@ ls.add_snippets("cpp", {
         d(1, function(_, parent)
             local env = parent.snippet.env
             local name, filetype = env.TM_FILENAME:match("^(.+)%.(%w+)$")
-            capitalised_name = name:gsub("^.", string.upper)
+            local capitalised_name = name:gsub("^.", string.upper)
             if filetype == "hpp" then
                 return sn(
                     nil,

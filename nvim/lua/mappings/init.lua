@@ -63,7 +63,7 @@ vim.keymap.set("n", "<leader>x", function()
     local force = false
     if vim.bo.buftype == "terminal" or vim.api.nvim_buf_get_name(0) == "" then
         force = true
-    elseif vim.api.nvim_buf_get_option(0, "modified") then
+    elseif vim.api.nvim_buf_get_option_value(0, "modified") then
         vim.notify("Buffer is modified")
         return
     end

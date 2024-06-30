@@ -86,7 +86,7 @@ local plugins = {
         config = true,
         opts = {
             options = {
-                custom_filter = function(buf_number, buf_numbers)
+                custom_filter = function(buf_number, _)
                     if vim.bo[buf_number].buftype == "quickfix" then
                         return false
                     end

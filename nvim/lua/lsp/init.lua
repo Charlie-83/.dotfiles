@@ -17,6 +17,10 @@ autocmd("FileType", {
             cmd = { "clangd", "--clang-tidy" },
             root_dir = root_dir,
         })
+        if client == nil then
+            print("Failed to start clangd")
+            return
+        end
         vim.lsp.buf_attach_client(0, client)
     end,
 })
@@ -31,6 +35,10 @@ autocmd("FileType", {
             cmd = { "jedi-language-server" },
             root_dir = root_dir,
         })
+        if jedi == nil then
+            print("Failed to start jedi")
+            return
+        end
         vim.lsp.buf_attach_client(0, jedi)
         local ruff = vim.lsp.start({
             name = "Ruff",
@@ -44,6 +52,10 @@ autocmd("FileType", {
                 },
             },
         })
+        if ruff == nil then
+            print("Failed to start ruff")
+            return
+        end
         vim.lsp.buf_attach_client(0, ruff)
     end,
 })
@@ -70,6 +82,10 @@ autocmd("FileType", {
                 },
             },
         })
+        if client == nil then
+            print("Failed to start lua-ls")
+            return
+        end
         vim.lsp.buf_attach_client(0, client)
     end,
 })
@@ -85,6 +101,10 @@ autocmd("FileType", {
             cmd = { "zls" },
             root_dir = root_dir,
         })
+        if client == nil then
+            print("Failed to start zls")
+            return
+        end
         vim.lsp.buf_attach_client(0, client)
     end,
 })
@@ -99,6 +119,10 @@ autocmd("FileType", {
             cmd = { "glslls", "--stdin" },
             root_dir = root_dir,
         })
+        if client == nil then
+            print("Failed to start glsl-ls")
+            return
+        end
         vim.lsp.buf_attach_client(0, client)
     end,
 })
@@ -129,6 +153,10 @@ autocmd("FileType", {
                 documentRangeFormatting = true,
             },
         })
+        if client == nil then
+            print("Failed to start efm-langserver")
+            return
+        end
         vim.lsp.buf_attach_client(0, client)
     end,
 })
@@ -152,5 +180,5 @@ vim.api.nvim_create_user_command("LspInfo", function()
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
     vim.api.nvim_command("split")
     vim.api.nvim_command("b" .. bufnr)
-    vim.api.nvim_buf_set_option(bufnr, "bufhidden", "delete")
+    vim.api.nvim_buf_set_option_value(bufnr, "bufhidden", "delete")
 end, {})
