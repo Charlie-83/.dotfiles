@@ -30,18 +30,6 @@ vim.keymap.set(
     "v:count || mode(1)[0:1] == \"no\" ? \"k\" : \"gk\"",
     { desc = "Move up", expr = true }
 )
-vim.keymap.set(
-    { "n", "v", "x" },
-    "<Up>",
-    "v:count || mode(1)[0:1] == \"no\" ? \"k\" : \"gk\"",
-    { desc = "Move up", expr = true }
-)
-vim.keymap.set(
-    { "n", "v", "x" },
-    "<Down>",
-    "v:count || mode(1)[0:1] == \"no\" ? \"j\" : \"gj\"",
-    { desc = "Move down", expr = true }
-)
 
 --
 vim.keymap.set("n", "n", "nzz", {})
