@@ -1,4 +1,4 @@
-require("lazy_setup")
+require("lazy_setup").setup(require("plugins"))
 
 require("mappings")
 require("options")

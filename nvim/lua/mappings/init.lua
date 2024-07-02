@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>x", function()
     local force = false
     if vim.bo.buftype == "terminal" or vim.api.nvim_buf_get_name(0) == "" then
         force = true
-    elseif vim.api.nvim_buf_get_option_value(0, "modified") then
+    elseif vim.api.nvim_get_option_value("modified", {}) then
         vim.notify("Buffer is modified")
         return
     end
@@ -251,6 +251,7 @@ vim.keymap.set("n", "<leader>hx", function()
     require("gitsigns").toggle_deleted()
 end, { desc = "Toggle Deleted Hunks" })
 
+-- KittyNavigate
 vim.keymap.set(
     "n",
     "<C-h>",
@@ -275,6 +276,7 @@ vim.keymap.set(
     "<cmd> KittyNavigateUp<CR>",
     { desc = "window up" }
 )
+
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
@@ -396,7 +398,6 @@ vim.keymap.set(
     "<Plug>(leap-backward-to)",
     { desc = "Leap backward" }
 )
--- vim.keymap.set({ "n" }, ",", "m", { desc = "Place mark" })
 
 -- treesj
 vim.keymap.set(
