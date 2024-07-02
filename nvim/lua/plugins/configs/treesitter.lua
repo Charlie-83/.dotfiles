@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "cpp", "lua", "python", "glsl" },
+    ensure_installed = { "cpp", "lua", "python", "glsl", "vimdoc" },
     sync_install = false,
     auto_install = false,
     ignore_install = {},
