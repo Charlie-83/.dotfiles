@@ -479,7 +479,7 @@ vim.keymap.set(
     "n",
     "<leader>qa",
     "<cmd> caddexpr expand('%') .. ':' .. line('.') .. ':' .. getline('.') "
-        .. "| copen <CR>"
+        .. "| copen <CR> | <C-w>k"
 )
 
 -- Yanky
