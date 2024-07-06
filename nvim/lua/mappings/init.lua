@@ -506,3 +506,8 @@ vim.keymap.set("n", "<leader>wn", function()
     local count = vim.v.count1
     vim.cmd("vertical resize -" .. count)
 end, { desc = "Make window narrower" })
+
+-- Toggle wrap
+vim.keymap.set("n", "<leader>wr", function()
+    vim.cmd("set wrap!")
+end, { desc = "Toggle line wrapping" })

@@ -52,3 +52,8 @@ vim.keymap.set(
     "<cmd> KittyNavigateUp<CR>",
     { desc = "window up" }
 )
+
+-- Toggle wrap
+vim.keymap.set("n", "<leader>wr", function()
+    vim.cmd("set wrap!")
+end, { desc = "Toggle line wrapping" })
