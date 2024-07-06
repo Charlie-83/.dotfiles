@@ -84,7 +84,12 @@ vim.keymap.set(
 )
 
 -- LSP
-vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format File" })
+vim.keymap.set(
+    { "n", "v" },
+    "<leader>fm",
+    vim.lsp.buf.format,
+    { desc = "Format File" }
+)
 
 vim.keymap.set("n", "gD", function()
     vim.lsp.buf.declaration()
