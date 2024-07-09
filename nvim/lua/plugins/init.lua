@@ -226,4 +226,5 @@ local plugins = {
         "creativenull/efmls-configs-nvim",
     },
 }
+require("plugins.ladder")
 return plugins
