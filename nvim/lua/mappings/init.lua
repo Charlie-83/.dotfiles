@@ -121,7 +121,7 @@ vim.keymap.set("n", "<leader>cr", function()
 end, { desc = "LSP rename" })
 
 -- Diagnostic
-vim.keymap.set("n", "<leader>f", function()
+vim.keymap.set("n", "<leader>tK", function()
     vim.diagnostic.open_float({ border = "rounded" })
 end, { desc = "Floating diagnostic" })
 vim.keymap.set("n", "[t", function()
