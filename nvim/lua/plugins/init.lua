@@ -225,6 +225,9 @@ local plugins = {
     {
         "creativenull/efmls-configs-nvim",
     },
+    {
+        "tpope/vim-abolish",
+    },
 }
 require("plugins.ladder")
 return plugins
