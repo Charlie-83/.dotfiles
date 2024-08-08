@@ -516,3 +516,7 @@ end, { desc = "Make window narrower" })
 vim.keymap.set("n", "<leader>wr", function()
     vim.cmd("set wrap!")
 end, { desc = "Toggle line wrapping" })
+
+-- Keyword search
+vim.keymap.set("n", "*", "*N")
+vim.keymap.set("n", "#", "#N")
