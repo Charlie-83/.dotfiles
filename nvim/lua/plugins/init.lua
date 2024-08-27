@@ -228,6 +228,11 @@ local plugins = {
     {
         "tpope/vim-abolish",
     },
+    {
+        "lukas-reineke/headlines.nvim",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        config = true,
+    },
 }
 require("plugins.ladder")
 return plugins
