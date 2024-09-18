@@ -285,22 +285,13 @@ vim.keymap.set(
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- DAP
+-- GDB
 vim.keymap.set(
     "n",
     "<leader>db",
     "<cmd>GdbBreakpointToggle<CR>",
     { desc = "Add breakpoint to line" }
 )
--- vim.keymap.set("n", "<leader>dB", function()
---     local condition = vim.fn.input("Condition: ")
---     condition = condition ~= "" and condition or nil
---     local count = vim.fn.input("Count: ")
---     count = count ~= "" and count or nil
---     local log = vim.fn.input("Log: ")
---     log = log ~= "" and log or nil
---     dap.set_breakpoint(condition, count, log)
--- end, { desc = "Add breakpoint to line" })
 vim.keymap.set(
     "n",
     "<leader>dx",
@@ -315,6 +306,12 @@ vim.keymap.set(
 )
 vim.keymap.set(
     "n",
+    "<leader>dr",
+    "<cmd>Gdb r<CR>",
+    { desc = "(Re)start the program" }
+)
+vim.keymap.set(
+    "n",
     "<leader>dt",
     "<cmd>GdbDebugStop<CR>",
     { desc = "Stop debugger" }
@@ -322,6 +319,18 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>dj", "<cmd>GdbStep<CR>", { desc = "Step in" })
 vim.keymap.set("n", "<leader>dk", "<cmd>GdbFinish<CR>", { desc = "Step out" })
 vim.keymap.set("n", "<leader>dl", "<cmd>GdbNext<CR>", { desc = "Step over" })
+vim.keymap.set(
+    "n",
+    "<leader>do",
+    "<cmd>Gdb out<CR>",
+    { desc = "Out one stack frame" }
+)
+vim.keymap.set(
+    "n",
+    "<leader>di",
+    "<cmd>Gdb in<CR>",
+    { desc = "In one stack frame" }
+)
 vim.keymap.set(
     "n",
     "<leader>dp",
@@ -339,6 +348,12 @@ vim.keymap.set(
     "<leader>dK",
     "<cmd>GdbEvalWord<CR>",
     { desc = "Evaluate word under cursor" }
+)
+vim.keymap.set(
+    "v",
+    "<leader>dK",
+    "<Esc><cmd>'<,'>GdbEvalRange<CR>",
+    { desc = "Evaluate visual selection" }
 )
 vim.keymap.set(
     "n",
