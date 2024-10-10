@@ -5,8 +5,7 @@ require("statuscol").setup({
     bt_ignore = { "terminal" },
     relculright = true,
     segments = {
-        { sign = { name = { "Marks_.*", "Gdb*" }, colwidth = 1 } },
-        { sign = { name = { "DiagnosticSign.*" }, colwidth = 1 } },
+        { sign = { name = { "Gdb*", "Marks_.*" }, colwidth = 1 } },
         {
             text = { builtin.foldfunc },
             colwidth = 1,
