@@ -322,14 +322,14 @@ vim.keymap.set("n", "<leader>dl", "<cmd>GdbNext<CR>", { desc = "Step over" })
 vim.keymap.set(
     "n",
     "<leader>do",
-    "<cmd>Gdb out<CR>",
-    { desc = "Out one stack frame" }
+    "<cmd>Gdb up<CR>",
+    { desc = "Up one stack frame" }
 )
 vim.keymap.set(
     "n",
     "<leader>di",
-    "<cmd>Gdb in<CR>",
-    { desc = "In one stack frame" }
+    "<cmd>Gdb down<CR>",
+    { desc = "Down one stack frame" }
 )
 vim.keymap.set(
     "n",
