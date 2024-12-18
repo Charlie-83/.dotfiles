@@ -542,3 +542,10 @@ vim.keymap.set(
     "<cmd> Ouroboros <CR>",
     { desc = "Switch header/sources" }
 )
+
+vim.keymap.set(
+    "n",
+    "<leader>dd",
+    "q:?GdbStart gdb <CR>",
+    { desc = "Run most recent gdb command" }
+)

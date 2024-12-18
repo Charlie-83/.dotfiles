@@ -220,7 +220,7 @@ local plugins = {
         config = true,
     },
     {
-        "sakhnik/nvim-gdb",
+        "Charlie-83/nvim-gdb",
     },
     {
         "creativenull/efmls-configs-nvim",
