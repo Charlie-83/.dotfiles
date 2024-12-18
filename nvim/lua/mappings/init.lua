@@ -535,3 +535,10 @@ end, { desc = "Toggle line wrapping" })
 -- Keyword search
 vim.keymap.set("n", "*", "*N")
 vim.keymap.set("n", "#", "#N")
+
+vim.keymap.set(
+    "n",
+    "<leader>cs",
+    "<cmd> Ouroboros <CR>",
+    { desc = "Switch header/sources" }
+)
