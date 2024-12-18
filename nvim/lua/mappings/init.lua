@@ -39,7 +39,7 @@ vim.keymap.set("n", "N", "Nzz", {})
 vim.keymap.set(
     "n",
     "<leader>b",
-    "<cmd> term cmake --build ~/source/willow/engine/build && cmake --build ~/source/willow/build <CR> <cmd> execute ':file Build' strftime('%H:%M:%S')  <CR>",
+    require("plugins.make").make,
     { desc = "Build with cmake" }
 )
 

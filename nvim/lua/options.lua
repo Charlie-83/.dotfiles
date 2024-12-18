@@ -16,3 +16,5 @@ vim.o.foldenable = false
 vim.o.foldlevel = 99
 
 vim.o.mouse = ""
+
+vim.o.makeprg = "ninja -C build"
