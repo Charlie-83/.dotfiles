@@ -16,6 +16,34 @@ function M.make()
     vim.api.nvim_set_current_win(win)
     local qf_id = vim.fn.getqflist({ id = 0 }).id
 
+    local scrolling = true
+    vim.api.nvim_buf_set_keymap(
+        vim.api.nvim_win_get_buf(qf_win),
+        "n",
+        "k",
+        "",
+        {
+            callback = function()
+                scrolling = false
+                local row, col = vim.api.nvim_win_get_cursor(qf_win)
+                vim.api.nvim_win_set_cursor(qf_win, { (row - 1), col })
+            end,
+        }
+    )
+    vim.api.nvim_buf_set_keymap(
+        vim.api.nvim_win_get_buf(qf_win),
+        "n",
+        "j",
+        "",
+        {
+            callback = function()
+                scrolling = false
+                local row, col = vim.api.nvim_win_get_cursor(qf_win)
+                vim.api.nvim_win_set_cursor(qf_win, { (row + 1), col })
+            end,
+        }
+    )
+
     local makeprg = vim.api.nvim_get_option_value("makeprg", {})
     local cmd = vim.fn.expandcmd(makeprg)
 
@@ -34,6 +62,9 @@ function M.make()
                 title = cmd,
                 lines = { lines },
             })
+            if not scrolling then
+                return
+            end
             local qf_buf = vim.api.nvim_win_get_buf(qf_win)
             local line_count = vim.api.nvim_buf_line_count(qf_buf)
             vim.api.nvim_win_set_cursor(qf_win, { line_count, 0 })
