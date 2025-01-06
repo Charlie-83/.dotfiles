@@ -11,7 +11,7 @@ autocmd("FileType", {
     pattern = { "cpp", "c" },
     callback = function()
         local root_dir =
-            vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
+            vim.fs.dirname(vim.fs.find({ ".git", ".jj" }, { upward = true })[1])
         local client = vim.lsp.start({
             name = "clangd",
             cmd = { "clangd", "--clang-tidy" },
@@ -180,5 +180,5 @@ vim.api.nvim_create_user_command("LspInfo", function()
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
     vim.api.nvim_command("split")
     vim.api.nvim_command("b" .. bufnr)
-    vim.api.nvim_set_option_value(bufnr, "bufhidden", "delete")
+    vim.api.nvim_set_option_value("bufhidden", "delete", { buff = bufnr })
 end, {})

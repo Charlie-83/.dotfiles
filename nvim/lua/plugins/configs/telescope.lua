@@ -3,6 +3,7 @@ local vimgrep_arguments =
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 table.insert(vimgrep_arguments, "-L")
+table.insert(vimgrep_arguments, "--no-require-git")
 
 require("telescope").setup({
     defaults = {
@@ -22,6 +23,7 @@ require("telescope").setup({
                 "--glob",
                 "!**/.git/*",
                 "-L",
+                "--no-require-git",
             },
         },
     },
