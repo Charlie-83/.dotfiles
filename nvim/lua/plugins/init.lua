@@ -233,6 +233,24 @@ local plugins = {
         dependencies = "nvim-treesitter/nvim-treesitter",
         config = true,
     },
+    {
+        "3rd/image.nvim",
+        dependencies = "luarocks.nvim",
+        opts = {
+            integrations = {
+                markdown = {
+                    clear_in_insert_mode = true,
+                },
+            },
+        },
+    },
+    {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        opts = {
+            rocks = { "magick" },
+        },
+    },
 }
 require("plugins.ladder")
 return plugins

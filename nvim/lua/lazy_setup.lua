@@ -15,7 +15,6 @@ function M.setup(plugins)
 
     local options = {
         defaults = { lazy = false },
-
         ui = {
             icons = {
                 ft = "",
@@ -23,6 +22,9 @@ function M.setup(plugins)
                 loaded = "",
                 not_loaded = "",
             },
+        },
+        rocks = {
+            hererocks = true,
         },
     }
     require("lazy").setup(plugins, options)
