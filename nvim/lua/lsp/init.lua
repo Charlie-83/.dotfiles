@@ -127,6 +127,24 @@ autocmd("FileType", {
     end,
 })
 
+autocmd("FileType", {
+    pattern = "rust",
+    callback = function()
+        local root_dir =
+            vim.fs.dirname(vim.fs.find({ "Cargo.toml" }, { upward = true })[1])
+        local client = vim.lsp.start({
+            name = "rust-analyzer",
+            cmd = { "rust-analyzer" },
+            root_dir = root_dir,
+        })
+        if client == nil then
+            print("Failed to start rust-analyzer")
+            return
+        end
+        vim.lsp.buf_attach_client(0, client)
+    end,
+})
+
 local languages = {
     python = { require("efmls-configs.linters.mypy") },
     lua = { require("efmls-configs.formatters.stylua") },
@@ -180,5 +198,5 @@ vim.api.nvim_create_user_command("LspInfo", function()
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
     vim.api.nvim_command("split")
     vim.api.nvim_command("b" .. bufnr)
-    vim.api.nvim_set_option_value("bufhidden", "delete", { buff = bufnr })
+    vim.api.nvim_set_option_value("bufhidden", "delete", { buf = bufnr })
 end, {})
