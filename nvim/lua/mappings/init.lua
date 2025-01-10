@@ -543,9 +543,12 @@ vim.keymap.set(
     { desc = "Switch header/sources" }
 )
 
-vim.keymap.set(
-    "n",
-    "<leader>dd",
-    "q:?GdbStart gdb <CR>",
-    { desc = "Run most recent gdb command" }
-)
+vim.keymap.set("n", "<leader>dd", function()
+    local search_command = vim.api.nvim_replace_termcodes(
+        "q:?GdbStart gdb <CR><CR>",
+        true,
+        false,
+        true
+    )
+    vim.api.nvim_feedkeys(search_command, "n", true)
+end, { desc = "Run most recent gdb command" })
