@@ -1,0 +1,13 @@
+[user]
+name = "Charlie-83"
+email = "11279546+Charlie-83@users.noreply.github.com"
+
+[ui]
+editor = "nvim"
+
+[colors]
+"diff removed token" = { underline = false }
+"diff added token" = { underline = false }
+
+[template-aliases]
+"format_short_signature(signature)" = "signature.name()"
