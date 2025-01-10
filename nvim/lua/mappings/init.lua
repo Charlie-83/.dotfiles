@@ -552,3 +552,9 @@ vim.keymap.set("n", "<leader>dd", function()
     )
     vim.api.nvim_feedkeys(search_command, "n", true)
 end, { desc = "Run most recent gdb command" })
+
+vim.keymap.set("v", "<leader>_", function()
+    local lines = math.abs(vim.fn.line(".") - vim.fn.lind("v")) + 1
+    vim.cmd("resize " .. lines)
+    vim.cmd("norm zb")
+end, { desc = "Crop window to visual selection" })
