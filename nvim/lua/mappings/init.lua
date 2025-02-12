@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
 -- Highlights
 vim.keymap.set("n", "<Esc>", ":noh <CR>", { desc = "Clear highlights" })
 
