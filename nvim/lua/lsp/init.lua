@@ -145,6 +145,24 @@ autocmd("FileType", {
     end,
 })
 
+autocmd("FileType", {
+    pattern = "kotlin",
+    callback = function()
+        local root_dir =
+            vim.fs.dirname(vim.fs.find({ ".jj" }, { upward = true })[1])
+        local client = vim.lsp.start({
+            name = "kotlin-language-server",
+            cmd = { "kotlin-language-server" },
+            root_dir = root_dir,
+        })
+        if client == nil then
+            print("Failed to start kotlin-language-server")
+            return
+        end
+        vim.lsp.buf_attach_client(0, client)
+    end,
+})
+
 local languages = {
     python = { require("efmls-configs.linters.mypy") },
     lua = { require("efmls-configs.formatters.stylua") },
