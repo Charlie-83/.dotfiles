@@ -560,3 +560,13 @@ vim.keymap.set("v", "<leader>_", function()
     vim.cmd("resize " .. lines)
     vim.cmd("norm zb")
 end, { desc = "Crop window to visual selection" })
+
+vim.api.nvim_create_user_command("GdbStartName", function(opts)
+    vim.system({ "pgrep", opts.fargs[1] }, {
+        stdout = function(_, text)
+            if text then
+                vim.schedule_wrap(vim.cmd)("GdbStart rust-gdb -p " .. text)
+            end
+        end,
+    })
+end, { nargs = 1 })
