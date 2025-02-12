@@ -18,3 +18,5 @@ vim.o.foldlevel = 99
 vim.o.mouse = ""
 
 vim.o.makeprg = "ninja -C build"
+
+vim.o.spelllang = "en_gb"

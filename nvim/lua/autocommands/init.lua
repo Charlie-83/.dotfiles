@@ -57,9 +57,19 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-vim.api.nvim_create_autocmd("Filetype", {
-    pattern = "json",
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = "markdown",
     callback = function()
-        vim.bo.shiftwidth = 2
+        vim.wo.spell = true
+        vim.wo.linebreak = true
+    end,
+})
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = "*",
+    callback = function()
+        if vim.bo.filetype ~= "markdown" then
+            vim.wo.spell = false
+            vim.wo.linebreak = false
+        end
     end,
 })
