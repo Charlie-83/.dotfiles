@@ -22,6 +22,7 @@ local options = {
         { name = "nvim_lua" },
         { name = "path" },
     },
+    preselect = cmp.PreselectMode.None,
 }
 
 return options
