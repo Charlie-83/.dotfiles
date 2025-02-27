@@ -74,12 +74,6 @@ local plugins = {
         "knubie/vim-kitty-navigator",
     },
     {
-        "kdheepak/lazygit.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-    {
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
@@ -259,6 +253,11 @@ local plugins = {
     },
     {
         "rafi/telescope-thesaurus.nvim",
+    },
+    {
+        "swaits/lazyjj.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        opts = {},
     },
 }
 require("plugins.ladder")

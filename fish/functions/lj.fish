@@ -1,0 +1,3 @@
+function lj
+    lazyjj
+end

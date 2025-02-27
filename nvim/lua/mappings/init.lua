@@ -1,6 +1,14 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<Esc>", function()
+    local cmd
+    if vim.o.filetype == "lazyjj" then
+        cmd = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+    else
+        cmd = vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true)
+    end
+    vim.api.nvim_feedkeys(cmd, "n", false)
+end, { desc = "Exit terminal mode" })
 
 -- Highlights
 vim.keymap.set("n", "<Esc>", ":noh <CR>", { desc = "Clear highlights" })
@@ -370,9 +378,6 @@ vim.keymap.set(
     { desc = "List trace" }
 )
 
--- LazyGit
-vim.keymap.set("n", "<leader>gg", "<cmd> LazyGit<cr>", { desc = "LazyGit" })
-
 -- Trouble
 vim.keymap.set(
     "n",
@@ -578,3 +583,6 @@ vim.keymap.set(
     "<cmd>Telescope thesaurus lookup<CR>",
     { desc = "Thesaurus lookup" }
 )
+
+-- LazyJJ
+vim.keymap.set("n", "<leader>jj", "<cmd>LazyJJ<CR>", { desc = "LazyJJ" })

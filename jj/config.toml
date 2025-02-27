@@ -11,3 +11,7 @@ editor = "nvim"
 
 [template-aliases]
 "format_short_signature(signature)" = "signature.name()"
+
+[lazyjj]
+layout = "vertical"
+layout-percent = 2
