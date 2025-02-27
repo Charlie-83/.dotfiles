@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = "markdown",
+    pattern = { "markdown", "tex" },
     callback = function()
         vim.wo.spell = true
         vim.wo.linebreak = true
@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = "*",
     callback = function()
-        if vim.bo.filetype ~= "markdown" then
+        if vim.bo.filetype ~= "markdown" and vim.bo.filetype ~= "tex" then
             vim.wo.spell = false
             vim.wo.linebreak = false
         end
