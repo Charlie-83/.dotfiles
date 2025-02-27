@@ -17,3 +17,6 @@ function fish_prompt
     set_color green
     echo -n '🐸->>'
 end
+
+# API key env variables
+source ~/.config/api.fish
