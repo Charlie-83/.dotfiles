@@ -35,7 +35,7 @@ systemctl --user start opentabletdriver.service
 
 setxkbmap -layout us
 
-xrandr --output DP-2 --auto --left-of HDMI-0 --rotate left
-xrandr --output HDMI-0 --primary
+xrandr --output HDMI-0 --auto --rotate left --pos 0x0
+xrandr --output DP-4 --auto --primary --pos 1080x430
 
 exec i3
