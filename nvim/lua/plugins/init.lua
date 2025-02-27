@@ -251,6 +251,9 @@ local plugins = {
             rocks = { "magick" },
         },
     },
+    {
+        "rafi/telescope-thesaurus.nvim",
+    },
 }
 require("plugins.ladder")
 return plugins

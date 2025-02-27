@@ -570,3 +570,11 @@ vim.api.nvim_create_user_command("GdbStartName", function(opts)
         end,
     })
 end, { nargs = 1 })
+
+-- Thesaurus
+vim.keymap.set(
+    "n",
+    "<leader>th",
+    "<cmd>Telescope thesaurus lookup<CR>",
+    { desc = "Thesaurus lookup" }
+)

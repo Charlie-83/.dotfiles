@@ -20,3 +20,5 @@ vim.o.mouse = ""
 vim.o.makeprg = "ninja -C build"
 
 vim.o.spelllang = "en_gb"
+
+vim.o.thesaurus = vim.fn.stdpath("config") .. "/thesaurus/english.txt"
