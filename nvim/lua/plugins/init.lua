@@ -261,4 +261,5 @@ local plugins = {
     },
 }
 require("plugins.ladder")
+vim.cmd("packadd cfilter")
 return plugins
