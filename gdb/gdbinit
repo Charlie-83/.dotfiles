@@ -1,1 +1,10 @@
 set breakpoint pending on
+set debuginfod enabled on
+
+add-auto-load-safe-path "/home/charlie/.dotfiles/gdb/auto-load"
+add-auto-load-scripts-directory "/home/charlie/.dotfiles/gdb/auto-load"
+
+python
+import os
+import sys
+sys.path.append("/home/charlie/source/thirdparty")
