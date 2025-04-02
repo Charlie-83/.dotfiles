@@ -18,5 +18,9 @@ function fish_prompt
     echo -n '🐸->>'
 end
 
+function fish_postexec --on-event fish_postexec
+    echo -e "\a"
+end
+
 # API key env variables
 source ~/.config/api.fish
