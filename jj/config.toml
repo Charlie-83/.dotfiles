@@ -15,3 +15,6 @@ editor = "nvim"
 [lazyjj]
 layout = "vertical"
 layout-percent = 2
+
+[revsets]
+log = "@ | visible_heads() ~ untracked_remote_bookmarks() | ancestors(@, 4) | @::"
