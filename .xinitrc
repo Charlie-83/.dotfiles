@@ -38,4 +38,7 @@ setxkbmap -layout us
 xrandr --output HDMI-0 --auto --rotate left --pos 0x0
 xrandr --output DP-4 --auto --primary --pos 1080x430
 
+xrandr --setmonitor vertical auto HDMI-0
+xrandr --setmonitor horizontal auto DP-4
+
 exec i3

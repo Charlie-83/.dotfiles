@@ -12,37 +12,32 @@ BATTERY_UUID = "0000180f-0000-1000-8000-00805f9b34fb"
 BATTERY_LEVEL_UUID = "00002a19-0000-1000-8000-00805f9b34fb"
 BATTERY_USER_DESC = "00002901-0000-1000-8000-00805f9b34fb"
 
-out = ""
+out = "  "
 
 async def main():
-    bus = await MessageBus(bus_type=BusType.SYSTEM).connect()
-    # the introspection xml would normally be included in your project, but
-    # this is convenient for development
-    introspection = await bus.introspect(BLUEZ, BLUEZ_PATH)
+    try:
+        bus = await MessageBus(bus_type=BusType.SYSTEM).connect()
+        # the introspection xml would normally be included in your project, but
+        # this is convenient for development
+        introspection = await bus.introspect(BLUEZ, BLUEZ_PATH)
 
-    device = bus.get_proxy_object(BLUEZ, BLUEZ_PATH, introspection)
+        device = bus.get_proxy_object(BLUEZ, BLUEZ_PATH, introspection)
 
-    for svc in device.child_paths:
-        intp = await bus.introspect(BLUEZ, svc)
-        proxy = bus.get_proxy_object(BLUEZ, svc, intp)
-        intf = proxy.get_interface(GATT_SERVICE)
-        if BATTERY_UUID == await intf.get_uuid():
-            for char in proxy.child_paths:
-                intp = await bus.introspect(BLUEZ, char)
-                proxy = bus.get_proxy_object(BLUEZ, char, intp)
-                intf = proxy.get_interface(GATT_CHARACTERISCITC)
-                level = int.from_bytes(await intf.call_read_value({}))
-                if BATTERY_LEVEL_UUID == await intf.get_uuid():
-                    props = proxy.get_interface('org.freedesktop.DBus.Properties')
-                    for desc in proxy.child_paths:
-                        intp = await bus.introspect(BLUEZ, desc)
-                        proxy = bus.get_proxy_object(BLUEZ, desc, intp)
-                        intf = proxy.get_interface(GATT_CHARACTERISCITC_DESCR)
-                        name = "L"
-                        if BATTERY_USER_DESC == await intf.get_uuid():
-                            name = "R"
-                    global out
-                    out += f"{name}:{level}% "
+        for svc in device.child_paths:
+            intp = await bus.introspect(BLUEZ, svc)
+            proxy = bus.get_proxy_object(BLUEZ, svc, intp)
+            intf = proxy.get_interface(GATT_SERVICE)
+            if BATTERY_UUID == await intf.get_uuid():
+                for char in proxy.child_paths:
+                    intp = await bus.introspect(BLUEZ, char)
+                    proxy = bus.get_proxy_object(BLUEZ, char, intp)
+                    intf = proxy.get_interface(GATT_CHARACTERISCITC)
+                    level = int.from_bytes(await intf.call_read_value({}))
+                    if BATTERY_LEVEL_UUID == await intf.get_uuid():
+                        global out
+                        out += f"{level}% "
+    except:
+        out += "Disconnected"
 
 if __name__ == "__main__":
     asyncio.run(main())
