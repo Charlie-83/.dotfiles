@@ -1,6 +1,7 @@
 set $mod Mod4
 floating_modifier $mod
 
+font pango:Terminus 0
 title_align center
 gaps inner 0
 gaps outer 0
