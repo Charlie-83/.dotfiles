@@ -1,0 +1,22 @@
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-cmd-mode-string "[N]"
+set vi-ins-mode-string "[I]"
+
+# Because it interprets ESC as meta so waits 500ms each time you exit normal mode
+set keyseq-timeout 0
+
+# Otherwise stty makes C-W into rubout
+set bind-tty-special-chars off
+
+# For gdb --tui
+"\C-w":
+"\C-wo": tui-switch-mode
+"\C-w\C-o": tui-switch-mode
+"\C-ww": tui-other-window
+"\C-w\C-w": tui-other-window
+"\C-w1": tui-delete-other-windows
+"\C-w\C-1": tui-delete-other-windows
+"\C-w2": tui-change-windows
+"\C-w\C-2": tui-change-windows
+"\C-ws": next-keymap
