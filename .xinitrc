@@ -41,4 +41,6 @@ xrandr --output DP-4 --auto --primary --pos 1080x430
 xrandr --setmonitor vertical auto HDMI-0
 xrandr --setmonitor horizontal auto DP-4
 
+xset s off s noblank -dpms
+
 exec i3
