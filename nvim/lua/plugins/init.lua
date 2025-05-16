@@ -247,7 +247,7 @@ local plugins = {
         "tpope/vim-abolish",
     },
     {
-        "lukas-reineke/headlines.nvim",
+        "MeanderingProgrammer/render-markdown.nvim",
         dependencies = "nvim-treesitter/nvim-treesitter",
         config = true,
     },
