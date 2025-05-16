@@ -249,7 +249,11 @@ local plugins = {
     {
         "MeanderingProgrammer/render-markdown.nvim",
         dependencies = "nvim-treesitter/nvim-treesitter",
-        config = true,
+        opts = {
+            heading = {
+                border = true,
+            },
+        },
     },
     {
         "3rd/image.nvim",
