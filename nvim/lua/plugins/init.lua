@@ -126,7 +126,9 @@ local plugins = {
     },
     {
         "ggandor/leap.nvim",
-        config = true,
+        opts = {
+            safe_labels = "qwetfbunmWETFGBNM/?",
+        },
     },
     {
         "ggandor/leap-spooky.nvim",
