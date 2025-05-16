@@ -271,12 +271,7 @@ local plugins = {
     },
     {
         "rafi/telescope-thesaurus.nvim",
-    },
-    {
-        "swaits/lazyjj.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-        opts = {},
-    },
+    }
 }
 require("plugins.ladder")
 vim.cmd("packadd cfilter")
