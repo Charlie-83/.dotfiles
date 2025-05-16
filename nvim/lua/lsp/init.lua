@@ -98,7 +98,7 @@ autocmd("FileType", {
         )
         local client = vim.lsp.start({
             name = "zls",
-            cmd = { "zls" },
+            cmd = { "zls", "--enable-stderr-logs" },
             root_dir = root_dir,
         })
         if client == nil then
