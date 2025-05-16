@@ -177,6 +177,11 @@ local plugins = {
             view_options = {
                 show_hidden = true,
             },
+            columns = {
+                "icon",
+                "permissions",
+                "size",
+            },
         },
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
