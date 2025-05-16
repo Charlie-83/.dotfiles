@@ -191,6 +191,11 @@ local languages = {
         require("efmls-configs.formatters.jq"),
         require("efmls-configs.linters.jq"),
     },
+    css = {
+        {
+            formatCommand = "prettier",
+        },
+    },
 }
 autocmd("FileType", {
     pattern = vim.tbl_keys(languages),
