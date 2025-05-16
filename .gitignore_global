@@ -1,2 +1,4 @@
 **/.null-ls_*
 .venv
+.gdb_history
+
