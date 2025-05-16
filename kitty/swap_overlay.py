@@ -29,6 +29,6 @@ def handle_result(
         )
     elif args[1] == "make":
         window = tab.active_window
-        boss.call_remote_control(window, ("launch", "--type=overlay-main"))
+        boss.call_remote_control(window, ("launch", "--type=overlay-main", "--cwd=current"))
     else:
         raise ValueError(f"Unknown command '{args[1]}'")
