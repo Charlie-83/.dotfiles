@@ -232,15 +232,6 @@ local plugins = {
         config = true,
     },
     {
-        "sakhnik/nvim-gdb",
-        config = function()
-            vim.api.nvim_set_var("nvimgdb_config", {
-                termwin_command = "topleft new",
-                sticky_dbg_buf = false,
-            })
-        end,
-    },
-    {
         "creativenull/efmls-configs-nvim",
     },
     {
