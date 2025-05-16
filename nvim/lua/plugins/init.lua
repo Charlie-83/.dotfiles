@@ -13,7 +13,6 @@ local plugins = {
             require("plugins.configs.treesitter")
         end,
     },
-    { "lewis6991/gitsigns.nvim", config = true },
     {
         "L3MON4D3/LuaSnip",
         dependencies = "rafamadriz/friendly-snippets",
