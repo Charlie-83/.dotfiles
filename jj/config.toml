@@ -17,4 +17,4 @@ layout = "vertical"
 layout-percent = 2
 
 [revsets]
-log = "@ | visible_heads() ~ untracked_remote_bookmarks() | ancestors(@, 4) | @::"
+log = "@ | visible_heads() ~ untracked_remote_bookmarks() | ancestors(@, 4) | tracked_remote_bookmarks() | trunk()"
