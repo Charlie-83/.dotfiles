@@ -540,8 +540,35 @@ vim.keymap.set("n", "<leader>wr", function()
 end, { desc = "Toggle line wrapping" })
 
 -- Keyword search
-vim.keymap.set("n", "*", "*N")
-vim.keymap.set("n", "#", "#N")
+vim.keymap.set("n", "*", function()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local cmd
+    if cursor[2] == 0 then
+        cmd = vim.api.nvim_replace_termcodes(
+            "yiwk$/\\<<C-R>\"\\><CR>",
+            true,
+            false,
+            true
+        )
+    else
+        cmd = vim.api.nvim_replace_termcodes(
+            "yiwlbh/\\<<C-R>\"\\><CR>",
+            true,
+            false,
+            true
+        )
+    end
+    vim.api.nvim_feedkeys(cmd, "n", true)
+end)
+vim.keymap.set("n", "#", function()
+    local cmd = vim.api.nvim_replace_termcodes(
+        "yiwhel?\\<<C-R>\"\\><CR>",
+        true,
+        false,
+        true
+    )
+    vim.api.nvim_feedkeys(cmd, "n", true)
+end)
 
 vim.keymap.set(
     "n",
