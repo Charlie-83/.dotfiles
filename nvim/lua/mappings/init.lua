@@ -613,3 +613,9 @@ vim.keymap.set(
 
 -- LazyJJ
 vim.keymap.set("n", "<leader>jj", "<cmd>LazyJJ<CR>", { desc = "LazyJJ" })
+
+vim.keymap.set("v", "<leader>_", function()
+    local lines = math.abs(vim.fn.line(".") - vim.fn.line("v")) + 1
+    vim.cmd("resize " .. lines)
+    vim.cmd("norm zb")
+end, { desc = "Crop window to visual selection" })
