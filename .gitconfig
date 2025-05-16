@@ -12,6 +12,6 @@
 [pull]
 	rebase = true
 [core]
-    excludesFile = ~/.dotfiles/.gitignore_global
+    excludesFile = /home/charlie/.dotfiles/.gitignore_global
 [alias]
     log = log --oneline
