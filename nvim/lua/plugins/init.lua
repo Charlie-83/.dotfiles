@@ -86,6 +86,17 @@ local plugins = {
                     end
                     return true
                 end,
+                right_mouse_command = false,
+                left_mouse_command = false,
+                show_buffer_close_icons = false,
+                close_command = function(buf)
+                    if
+                        vim.api.nvim_get_option_value("buftype", { buf = buf })
+                        ~= "terminal"
+                    then
+                        vim.api.nvim_buf_delete(buf, {})
+                    end
+                end,
             },
         },
     },
