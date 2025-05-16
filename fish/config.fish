@@ -24,3 +24,9 @@ end
 
 # API key env variables
 source ~/.config/api.fish
+
+set -x MANPAGER "nvim -u ~/.dotfiles/nvim/kitty_scrollback.lua +Man!"
+
+set -x VISUAL nvim
+
+set -x INPUTRC $HOME/.dotfiles/inputrc
