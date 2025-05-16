@@ -1,5 +1,14 @@
+configuration {
+    font: "FiraCodeNerdFont-Light 24";
+    drun-display-format: "{name}";
+}
+
+inputbar {
+    padding: 5;
+    children: [entry];
+}
 prompt {
-    text-color: #19d19d;
+    enabled: false;
 }
 entry {
     text-color: #19d19d;
