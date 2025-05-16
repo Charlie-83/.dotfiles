@@ -163,6 +163,26 @@ autocmd("FileType", {
     end,
 })
 
+autocmd("FileType", {
+    pattern = "dart",
+    callback = function()
+        local root_dir =
+            vim.fs.dirname(vim.fs.find({ ".jj" }, { upward = true })[1])
+        local client = vim.lsp.start({
+            name = "dart-ls",
+            cmd = { "dart", "language-server", "--protocol=lsp" },
+            root_dir = root_dir,
+        })
+        if client == nil then
+            print("Failed to start dart-ls")
+            return
+        end
+        vim.lsp.buf_attach_client(0, client)
+    end,
+})
+
+
+
 local languages = {
     python = { require("efmls-configs.linters.mypy") },
     lua = { require("efmls-configs.formatters.stylua") },
