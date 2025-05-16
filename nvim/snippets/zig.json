@@ -1,6 +1,10 @@
 {
-  "hello": {
+  "import": {
     "prefix": "import",
     "body": "const $1 = @import(\"$0$1.zig\");"
+  },
+  "std": {
+    "prefix": "std",
+    "body": "const std = @import(\"std\");"
   }
 }
