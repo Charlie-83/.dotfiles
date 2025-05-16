@@ -42,7 +42,7 @@ autocmd("FileType", {
         vim.lsp.buf_attach_client(0, jedi)
         local ruff = vim.lsp.start({
             name = "Ruff",
-            cmd = { "ruff-lsp" },
+            cmd = { "ruff", "server" },
             root_dir = root_dir,
             init_options = {
                 settings = {
