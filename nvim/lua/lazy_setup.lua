@@ -26,6 +26,9 @@ function M.setup(plugins)
         rocks = {
             hererocks = true,
         },
+        dev = {
+            path = "~/source/thirdparty",
+        },
     }
     require("lazy").setup(plugins, options)
 end
