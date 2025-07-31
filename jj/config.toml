@@ -4,6 +4,7 @@ email = "11279546+Charlie-83@users.noreply.github.com"
 
 [ui]
 editor = "nvim"
+default-command = "status"
 
 [colors]
 "diff removed token" = { underline = false }
@@ -17,4 +18,4 @@ layout = "vertical"
 layout-percent = 2
 
 [revsets]
-log = "@ | visible_heads() ~ untracked_remote_bookmarks() | ancestors(@, 4) | tracked_remote_bookmarks() | trunk()"
+log = "@ | visible_heads() ~ (untracked_remote_bookmarks() | tags()) | trunk() | ancestors(@, 4)"
