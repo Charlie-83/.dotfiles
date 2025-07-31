@@ -240,6 +240,23 @@ local plugins = {
         },
     },
     {
+        'skosulor/nibbler',
+        opts = {
+            display_enabled = true,
+        },
+    },
+    {
+        "3rd/image.nvim",
+        dependencies = "luarocks.nvim",
+        opts = {
+            integrations = {
+                markdown = {
+                    clear_in_insert_mode = true,
+                },
+            },
+        },
+    },
+    {
         "vhyrro/luarocks.nvim",
         priority = 1000,
         opts = {
