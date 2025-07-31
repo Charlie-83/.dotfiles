@@ -191,29 +191,12 @@ local plugins = {
         end,
     },
     {
-        "jakemason/ouroboros.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        ft = { "cpp" },
-    },
-    {
         "chentoast/marks.nvim",
-        commit = "e0909e4868671d158a7dce1bc7872fd7a1f7d656",
         opts = {
             default_mappings = false,
-            builtin_marks = { ".", "<", ">", "^" },
+            builtin_marks = {},
             excluded_buftypes = { "terminal" },
-            excluded_filetypes = {
-                "dap-repl",
-                "dapui_console",
-                "dapui_watches",
-                "dapui_stacks",
-                "dapui_breakpoints",
-                "dapui_scopes",
-            },
         },
-    },
-    {
-        "tpope/vim-fugitive",
     },
     {
         "mikesmithgh/kitty-scrollback.nvim",
