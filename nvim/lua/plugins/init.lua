@@ -270,6 +270,10 @@ local plugins = {
         "Charlie-83/jjsigns.nvim",
         config = true,
     },
+    {
+        "Charlie-83/vdiff.nvim",
+        config = true,
+    },
 }
 require("plugins.ladder")
 vim.cmd("packadd cfilter")
