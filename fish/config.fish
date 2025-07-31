@@ -30,3 +30,40 @@ set -x MANPAGER "nvim -u ~/.dotfiles/nvim/kitty_scrollback.lua +Man!"
 set -x VISUAL nvim
 
 set -x INPUTRC $HOME/.dotfiles/inputrc
+
+
+
+function jn
+    jj new $argv
+end
+function jd
+    jj desc $argv
+end
+function jl
+    jj log $argv
+end
+function je
+    jj edit $argv
+end
+function js
+    jj show $argv
+end
+function jsq
+    jj squash $argv
+end
+function jsi
+    jj squash -i $argv
+end
+function jgp
+    jj git push
+end
+function jlh 
+   if count $argv > /dev/null
+      jl -r '::@' -n $argv
+   else
+       jl -r '::@' -n 10
+   end 
+end
+function jbm
+    jj bookmark move $argv
+end
