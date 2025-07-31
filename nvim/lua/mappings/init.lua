@@ -264,89 +264,6 @@ vim.keymap.set(
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- GDB
-vim.keymap.set(
-    "n",
-    "<leader>db",
-    "<cmd>GdbBreakpointToggle<CR>",
-    { desc = "Add breakpoint to line" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dx",
-    "<cmd>GdbBreakpointClearAll<CR>",
-    { desc = "Clear breakpoints" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dc",
-    "<cmd>GdbContinue<CR>",
-    { desc = "Continue the debugger" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dr",
-    "<cmd>Gdb r<CR>",
-    { desc = "(Re)start the program" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dt",
-    "<cmd>GdbDebugStop<CR>",
-    { desc = "Stop debugger" }
-)
-vim.keymap.set("n", "<leader>dj", "<cmd>GdbStep<CR>", { desc = "Step in" })
-vim.keymap.set("n", "<leader>dk", "<cmd>GdbFinish<CR>", { desc = "Step out" })
-vim.keymap.set("n", "<leader>dl", "<cmd>GdbNext<CR>", { desc = "Step over" })
-vim.keymap.set(
-    "n",
-    "<leader>do",
-    "<cmd>Gdb up<CR>",
-    { desc = "Up one stack frame" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>di",
-    "<cmd>Gdb down<CR>",
-    { desc = "Down one stack frame" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dp",
-    "<cmd>GdbInterrupt<CR>",
-    { desc = "Pause debugger" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dz",
-    "<cmd>GdbFrame<CR>",
-    { desc = "Jump to current" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dK",
-    "<cmd>GdbEvalWord<CR>",
-    { desc = "Evaluate word under cursor" }
-)
-vim.keymap.set(
-    "v",
-    "<leader>dK",
-    "<Esc><cmd>'<,'>GdbEvalRange<CR>",
-    { desc = "Evaluate visual selection" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dqb",
-    "<cmd>GdbLopenBreakpoints<CR>",
-    { desc = "List breakpoints" }
-)
-vim.keymap.set(
-    "n",
-    "<leader>dqt",
-    "<cmd>GdbLopenBacktrace<CR>",
-    { desc = "List trace" }
-)
-
 -- Trouble
 vim.keymap.set(
     "n",
@@ -539,38 +456,11 @@ vim.keymap.set("n", "#", function()
     vim.api.nvim_feedkeys(cmd, "n", true)
 end)
 
-vim.keymap.set(
-    "n",
-    "<leader>cs",
-    "<cmd> Ouroboros <CR>",
-    { desc = "Switch header/sources" }
-)
-
-vim.keymap.set("n", "<leader>dd", function()
-    local search_command = vim.api.nvim_replace_termcodes(
-        "q:?GdbStart gdb <CR><CR>",
-        true,
-        false,
-        true
-    )
-    vim.api.nvim_feedkeys(search_command, "n", true)
-end, { desc = "Run most recent gdb command" })
-
 vim.keymap.set("v", "<leader>_", function()
     local lines = math.abs(vim.fn.line(".") - vim.fn.lind("v")) + 1
     vim.cmd("resize " .. lines)
     vim.cmd("norm zb")
 end, { desc = "Crop window to visual selection" })
-
-vim.api.nvim_create_user_command("GdbStartName", function(opts)
-    vim.system({ "pgrep", opts.fargs[1] }, {
-        stdout = function(_, text)
-            if text then
-                vim.schedule_wrap(vim.cmd)("GdbStart rust-gdb -p " .. text)
-            end
-        end,
-    })
-end, { nargs = 1 })
 
 -- Thesaurus
 vim.keymap.set(
@@ -579,9 +469,6 @@ vim.keymap.set(
     "<cmd>Telescope thesaurus lookup<CR>",
     { desc = "Thesaurus lookup" }
 )
-
--- LazyJJ
-vim.keymap.set("n", "<leader>jj", "<cmd>LazyJJ<CR>", { desc = "LazyJJ" })
 
 vim.keymap.set("v", "<leader>_", function()
     local lines = math.abs(vim.fn.line(".") - vim.fn.line("v")) + 1
