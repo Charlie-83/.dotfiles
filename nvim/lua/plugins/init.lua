@@ -265,7 +265,11 @@ local plugins = {
     },
     {
         "rafi/telescope-thesaurus.nvim",
-    }
+    },
+    {
+        "Charlie-83/jjsigns.nvim",
+        config = true,
+    },
 }
 require("plugins.ladder")
 vim.cmd("packadd cfilter")

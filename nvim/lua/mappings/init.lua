@@ -210,60 +210,29 @@ vim.keymap.set("n", "<leader>wk", function()
     vim.cmd("WhichKey " .. input)
 end, { desc = "Which-key query lookup" })
 
--- gitsigns
+-- jjsigns
 vim.keymap.set("n", "]h", function()
     if vim.wo.diff then
         return "]h"
     end
-    vim.schedule(function()
-        require("gitsigns").next_hunk()
-    end)
-    return "<Ignore>"
+    vim.cmd("JJSignsNext")
 end, { desc = "Jump to next hunk", expr = true })
 vim.keymap.set("n", "[h", function()
     if vim.wo.diff then
         return "[h"
     end
-    vim.schedule(function()
-        require("gitsigns").prev_hunk()
-    end)
-    return "<Ignore>"
+    vim.cmd("JJSignsPrevious")
 end, { desc = "Jump to prev hunk", expr = true })
-vim.keymap.set("n", "<leader>hs", function()
-    require("gitsigns").stage_hunk()
-end, { desc = "Stage Hunk" })
-vim.keymap.set("v", "<leader>hs", function()
-    require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-end, { desc = "Stage Hunk" })
+
 vim.keymap.set("n", "<leader>hr", function()
-    require("gitsigns").reset_hunk()
+    vim.cmd("JJSignsRestoreHunk")
 end, { desc = "Reset Hunk" })
-vim.keymap.set("v", "<leader>hr", function()
-    require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-end, { desc = "Reset Hunk" })
-vim.keymap.set("n", "<leader>hS", function()
-    require("gitsigns").stage_buffer()
-end, { desc = "Stage Buffer" })
 vim.keymap.set("n", "<leader>hR", function()
-    require("gitsigns").reset_buffer()
+    -- TODO
 end, { desc = "Reset Buffer" })
-vim.keymap.set("n", "<leader>hu", function()
-    require("gitsigns").undo_stage_hunk()
-end, { desc = "Undo Stage Hunk" })
-vim.keymap.set("n", "<leader>hp", function()
-    require("gitsigns").preview_hunk()
-end, { desc = "Preview Hunk" })
-vim.keymap.set("n", "<leader>hb", function()
-    require("gitsigns").blame_line({ full = true })
-end, { desc = "Blame Line" })
-vim.keymap.set("n", "<leader>hd", function()
-    require("gitsigns").diffthis()
-end, { desc = "Diff Against Index" })
-vim.keymap.set("n", "<leader>hD", function()
-    require("gitsigns").diffthis("~")
-end, { desc = "Diff Against Last Commit" })
+
 vim.keymap.set("n", "<leader>hx", function()
-    require("gitsigns").toggle_deleted()
+    vim.cmd("JJSignsToggleVirtualLines")
 end, { desc = "Toggle Deleted Hunks" })
 
 -- KittyNavigate
