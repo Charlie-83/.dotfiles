@@ -402,6 +402,8 @@ vim.keymap.set("n", "[y", "<Plug>(YankyPreviousEntry)")
 vim.keymap.set("n", "]y", "<Plug>(YankyNextEntry)")
 vim.keymap.set("n", "<leader>fy", "<cmd> Telescope yank_history <CR>")
 
+vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y", {})
+
 -- Window resizing
 vim.keymap.set("n", "<leader>wt", function()
     local count = vim.v.count1
