@@ -66,3 +66,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.hl.on_yank({ higroup = "Visual", timeout = 300 })
+    end,
+})

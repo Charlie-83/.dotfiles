@@ -395,13 +395,6 @@ vim.keymap.set(
         .. "| copen <CR> | <C-w>k"
 )
 
--- Yanky
-vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
-vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
-vim.keymap.set("n", "[y", "<Plug>(YankyPreviousEntry)")
-vim.keymap.set("n", "]y", "<Plug>(YankyNextEntry)")
-vim.keymap.set("n", "<leader>fy", "<cmd> Telescope yank_history <CR>")
-
 vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y", {})
 
 -- Window resizing

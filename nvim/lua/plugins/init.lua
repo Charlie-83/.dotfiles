@@ -194,10 +194,6 @@ local plugins = {
         config = true,
     },
     {
-        "gbprod/yanky.nvim",
-        config = true,
-    },
-    {
         "creativenull/efmls-configs-nvim",
     },
     {
