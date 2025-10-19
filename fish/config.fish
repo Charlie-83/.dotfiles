@@ -3,10 +3,6 @@ if status is-interactive
     export PATH="$PATH:/opt/flutter/bin:/home/charlie/.local/share/gem/ruby/3.0.0/bin"
 end
 
-if test -z $DISPLAY && test 1 -eq $XDG_VTNR
-    exec startx
-end
-
 function fish_prompt
     if test (prompt_pwd) != "~"
         set_color $fish_color_cwd
@@ -55,7 +51,7 @@ function jsi
     jj squash -i $argv
 end
 function jgp
-    jj git push
+    jj git push $argv
 end
 function jlh 
    if count $argv > /dev/null

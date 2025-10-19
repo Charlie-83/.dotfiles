@@ -1,0 +1,48 @@
+// -*- mode: jsonc -*-
+{
+    "height": 30, 
+    "output": "DP-3",
+    "spacing": 4,
+    "modules-left": [
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/keyboard",
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory"
+    ],
+    "clock": {
+        "format": "{:%A %d - %I:%M.%S}",
+        "interval": 1
+    },
+    "cpu": {
+        "format": "{usage}% 󰧑",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰈁",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/keyboard": {
+        "exec": "~/.dotfiles/polybar/zmk_split_battery_level_linux.py",
+        "interval": 1,
+        "on-click": "blueman-manager"
+    }
+}

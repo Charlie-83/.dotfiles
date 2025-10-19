@@ -1,0 +1,17 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FiraCodeNerdFont-Light;
+    font-size: 18px;
+}
+
+window#waybar {
+    background-color: #0D1618;
+    color: #d96e4e;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+.module {
+    background-color: rgba(255,255,255, 0.05);
+    padding: 0 10px;
+}
