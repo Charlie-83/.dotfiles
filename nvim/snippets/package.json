@@ -4,6 +4,10 @@
             {
                 "language": "zig",
                 "path": "./zig.json"
+            },
+            {
+                "language": "dart",
+                "path": "./dart.json"
             }
         ]
     }

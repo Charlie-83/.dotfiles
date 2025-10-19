@@ -1,0 +1,22 @@
+{
+  "import-material": {
+    "prefix": "material",
+    "body": "import 'package:flutter/material.dart';"
+  },
+  "stateless": {
+    "prefix": "stateless",
+    "body": "class $1 extends StatelessWidget{\n  const $1({super.key});\n  @override\n  Widget build(BuildContext context) {\n  }\n}"
+  },
+  "stateful": {
+    "prefix": "stateful",
+    "body": "class $1 extends StatefulWidget {\n  const $1({super.key});\n\n  @override\n  State<$1> createState() {\n    return _$1State();\n  }\n}\n\nclass _$1State extends State<$1> {\n  @override\n  Widget build(BuildContext context) {\n  }\n}"
+  },
+  "alert": {
+    "prefix": "alert",
+    "body": "showDialog(\n  context: context,\n  builder: (BuildContext context) => AlertDialog(\n    title: const Text(\"$1\"),\n    content: const Text(\"$2\"),\n    actions: [\n      TextButton(\n        child: const Text(\"Yes\"),\n        onPressed: () {\n          Navigator.of(context).pop();$3\n        },\n      ),\n      TextButton(\n        child: const Text(\"No\"),\n        onPressed: () {\n          Navigator.of(context).pop();\n        },\n      ),\n    ],\n  ),\n)"
+  },
+  "mainaxiscenter": {
+    "prefix": "mainaxiscenter",
+    "body": "mainAxisAlignment: MainAxisAlignment.center,"
+  }
+}
